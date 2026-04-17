@@ -1,0 +1,46 @@
+# schemas/hr_tables.yaml — HR database schema descriptions
+tables:
+  employees:
+    description: "All active and former employees"
+    columns:
+      emp_id:       {type: int,     desc: "Primary key"}
+      full_name:    {type: varchar, desc: "Full name"}
+      department:   {type: varchar, desc: "Department name"}
+      designation:  {type: varchar, desc: "Job title"}
+      joined_date:  {type: date,    desc: "Date of joining"}
+      is_active:    {type: bool,    desc: "1 = currently employed"}
+    sample_values:
+      department: ["Engineering", "Finance", "HR", "Sales", "Marketing", "Operations"]
+
+  leaves:
+    description: "Employee leave requests and approvals"
+    columns:
+      leave_id:    {type: int,     desc: "Primary key"}
+      emp_id:      {type: int,     desc: "FK to employees"}
+      leave_type:  {type: varchar, desc: "Annual/Sick/Maternity/Paternity"}
+      start_date:  {type: date,    desc: "Leave start date"}
+      end_date:    {type: date,    desc: "Leave end date"}
+      status:      {type: varchar, desc: "Pending/Approved/Rejected"}
+    sample_values:
+      leave_type: ["Annual", "Sick", "Maternity", "Paternity", "Unpaid"]
+      status: ["Pending", "Approved", "Rejected"]
+
+  payroll:
+    description: "Monthly payroll records (admin/HR only)"
+    columns:
+      payroll_id:   {type: int,     desc: "Primary key"}
+      emp_id:       {type: int,     desc: "FK to employees"}
+      month:        {type: date,    desc: "Payroll month (first of month)"}
+      basic_salary: {type: decimal, desc: "Basic salary amount"}
+      deductions:   {type: decimal, desc: "Total deductions"}
+      net_salary:   {type: decimal, desc: "Net salary paid"}
+
+  attendance:
+    description: "Daily attendance log"
+    columns:
+      attendance_id: {type: int,     desc: "Primary key"}
+      emp_id:        {type: int,     desc: "FK to employees"}
+      date:          {type: date,    desc: "Attendance date"}
+      check_in:      {type: time,    desc: "Check-in time"}
+      check_out:     {type: time,    desc: "Check-out time"}
+      status:        {type: varchar, desc: "Present/Absent/Half-day/WFH"}

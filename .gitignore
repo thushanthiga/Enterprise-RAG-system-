@@ -1,0 +1,31 @@
+# Dependencies
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+venv/
+rag-env/
+.venv/
+
+# Environment
+config/.env
+.env
+
+# Index files (generated, can be large)
+index/bm25_index.pkl
+index/chunks.json
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Docs directory (mounted at runtime)
+docs/

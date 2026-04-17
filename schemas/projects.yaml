@@ -1,0 +1,48 @@
+# schemas/projects.yaml — Projects database schema descriptions
+tables:
+  projects:
+    description: "Company projects"
+    columns:
+      project_id:    {type: int,     desc: "Primary key"}
+      project_name:  {type: varchar, desc: "Project display name"}
+      client:        {type: varchar, desc: "Client company name"}
+      start_date:    {type: date,    desc: "Project start date"}
+      end_date:      {type: date,    desc: "Planned end date"}
+      status:        {type: varchar, desc: "Active/Completed/On Hold/Cancelled"}
+      budget:        {type: decimal, desc: "Total project budget in USD"}
+    sample_values:
+      status: ["Active", "Completed", "On Hold", "Cancelled"]
+
+  tasks:
+    description: "Tasks within projects"
+    columns:
+      task_id:       {type: int,     desc: "Primary key"}
+      project_id:    {type: int,     desc: "FK to projects"}
+      task_name:     {type: varchar, desc: "Task description"}
+      assigned_to:   {type: int,     desc: "FK to employees.emp_id"}
+      due_date:      {type: date,    desc: "Task due date"}
+      status:        {type: varchar, desc: "Todo/In Progress/Done/Blocked"}
+      priority:      {type: varchar, desc: "Low/Medium/High/Critical"}
+    sample_values:
+      status: ["Todo", "In Progress", "Done", "Blocked"]
+      priority: ["Low", "Medium", "High", "Critical"]
+
+  milestones:
+    description: "Project milestones and deliverables"
+    columns:
+      milestone_id:  {type: int,     desc: "Primary key"}
+      project_id:    {type: int,     desc: "FK to projects"}
+      title:         {type: varchar, desc: "Milestone title"}
+      due_date:      {type: date,    desc: "Deadline"}
+      is_completed:  {type: bool,    desc: "true if achieved"}
+
+  timesheets:
+    description: "Employee time tracking entries"
+    columns:
+      entry_id:      {type: int,     desc: "Primary key"}
+      emp_id:        {type: int,     desc: "FK to employees"}
+      project_id:    {type: int,     desc: "FK to projects"}
+      task_id:       {type: int,     desc: "FK to tasks"}
+      date:          {type: date,    desc: "Work date"}
+      hours:         {type: decimal, desc: "Hours worked"}
+      notes:         {type: text,    desc: "Work description"}

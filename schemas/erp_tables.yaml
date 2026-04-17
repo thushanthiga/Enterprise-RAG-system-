@@ -1,0 +1,46 @@
+# schemas/erp_tables.yaml — ERP database schema descriptions
+# Only register tables and columns the LLM should be able to query.
+tables:
+  orders:
+    description: "Customer orders and purchase records"
+    columns:
+      order_id:      {type: int,     desc: "Primary key"}
+      customer_id:   {type: int,     desc: "FK to customers table"}
+      order_date:    {type: date,    desc: "Date order was placed"}
+      status:        {type: varchar, desc: "Pending/Confirmed/Shipped/Delivered/Cancelled"}
+      total_amount:  {type: decimal, desc: "Total order value in USD"}
+      payment_status: {type: varchar, desc: "Paid/Unpaid/Partial"}
+    sample_values:
+      status: ["Pending", "Confirmed", "Shipped", "Delivered", "Cancelled"]
+
+  customers:
+    description: "Customer master data"
+    columns:
+      customer_id:   {type: int,     desc: "Primary key"}
+      company_name:  {type: varchar, desc: "Company or individual name"}
+      contact_email: {type: varchar, desc: "Primary email"}
+      region:        {type: varchar, desc: "Geographic region"}
+      created_date:  {type: date,    desc: "Customer since"}
+    sample_values:
+      region: ["North", "South", "East", "West", "International"]
+
+  products:
+    description: "Product catalogue"
+    columns:
+      product_id:    {type: int,     desc: "Primary key"}
+      product_name:  {type: varchar, desc: "Product display name"}
+      category:      {type: varchar, desc: "Product category"}
+      unit_price:    {type: decimal, desc: "Price per unit in USD"}
+      stock_qty:     {type: int,     desc: "Current stock quantity"}
+    sample_values:
+      category: ["Electronics", "Industrial", "Office", "Raw Materials"]
+
+  invoices:
+    description: "Financial invoices issued to customers"
+    columns:
+      invoice_id:    {type: int,     desc: "Primary key"}
+      order_id:      {type: int,     desc: "FK to orders"}
+      invoice_date:  {type: date,    desc: "Date invoice issued"}
+      due_date:      {type: date,    desc: "Payment due date"}
+      amount:        {type: decimal, desc: "Invoice amount in USD"}
+      is_paid:       {type: bool,    desc: "true if fully paid"}

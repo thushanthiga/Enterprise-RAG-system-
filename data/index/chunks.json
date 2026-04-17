@@ -1,0 +1,1307 @@
+[
+  {
+    "text": "Joboro.ai  |  Business Requirements Document  \u2014  CONFIDENTIAL \nJoboro.ai BRD v1.0  |  \u00a9 2026 Joboro Inc.  |  Page 1 JOBORO.AI Business Requirements Document AI-Powered Recruitment Platform Field Details Document Version 1.0 Date March 2026 Status Draft for Review Prepared By [Product Team] Approved By [TBD] Classification Confidential",
+    "source": "Joboro_BRD_v1.0.pdf",
+    "doc_type": "pdf",
+    "page": 1,
+    "heading": "",
+    "category": "general",
+    "project_id": 6
+  },
+  {
+    "text": "Joboro.ai  |  Business Requirements Document  \u2014  CONFIDENTIAL \nJoboro.ai BRD v1.0  |  \u00a9 2026 Joboro Inc.  |  Page 2 1. Executive Summary Joboro.ai is an AI-powered recruitment platform headquartered in Delaware, USA. It is designed to streamline and accelerate the end-to-end hiring process for companies of all sizes \u2014 from startups to enterprises \u2014 by automating candidate screening, interviewing, and pipeline management using artificial intelligence. The platform promises a 10x faster hiring cycle and 5x return on investment by replacing manual screening with AI-driven workflows, reducing time-to-hire from weeks to 48\u201372 hours for a qualified shortlist. This Business Requirements Document (BRD) defines the functional and non-functional requirements, stakeholders, constraints, and success criteria for the Joboro platform. 2. Project Overview 2.1 Problem Statement Traditional recruitment is slow, costly, and prone to bias. Companies spend significant resources on: \u2022 Manual resume screening that is time-consuming and inconsistent \u2022 Scheduling and conducting multiple rounds of interviews \u2022 Managing candidate pipelines across disconnected tools \u2022 Unconscious bias leading to poor diversity outcomes \u2022 High cost-per-hire due to reliance on staffing agencies and job boards  2.2 Proposed Solution Joboro addresses these challenges by providing a unified AI-powered platform with: \u2022 Automated resume parsing and eligibility screening \u2022 AI-conducted video and audio interviews with 360\u00b0 candidate evaluation \u2022 Customizable multi-stage screening workflows \u2022 Seamless ATS integrations, job board syndication, and team collaboration tools \u2022 Predictive analytics and bias-control mechanisms  2.3 Target Users User Type Description Primary Need Hiring Managers Tech companies, startups, enterprises Fast, quality shortlists HR Recruiters In-house HR teams Pipeline management & automation Job Seekers / Candidates Active job seekers across domains Fair, transparent screening",
+    "source": "Joboro_BRD_v1.0.pdf",
+    "doc_type": "pdf",
+    "page": 2,
+    "heading": "",
+    "category": "general",
+    "project_id": 6
+  },
+  {
+    "text": "Joboro.ai  |  Business Requirements Document  \u2014  CONFIDENTIAL \nJoboro.ai BRD v1.0  |  \u00a9 2026 Joboro Inc.  |  Page 3 Platform Admins Joboro internal operations team System configuration & monitoring  3. Scope 3.1 In Scope \u2022 Job vacancy posting and distribution to external job boards \u2022 AI-powered CV parsing and candidate ranking \u2022 Configurable multi-stage screening workflows (written tests, AI interviews, human interviews) \u2022 AI audio and video interviews with domain, cognitive, language, and non-verbal competence scoring \u2022 Candidate pipeline management (Kanban view, smart filters, candidate tagging) \u2022 Team collaboration features for hiring panels \u2022 ATS integration and onboarding sync \u2022 Hiring analytics, audit trails, and compliance reporting \u2022 Dual portal: Recruiter dashboard (hire.joboro.ai) and Candidate portal (work.joboro.ai) \u2022 Career page builder for employer branding \u2022 Pre-vetted talent pool access  3.2 Out of Scope \u2022 Payroll processing and employee management post-hire \u2022 Learning management or employee training systems \u2022 Internal performance management tools \u2022 Direct background check services (third-party integrations only)  4. Functional Requirements 4.1 Core Modules  FR-01: Job Vacancy Management Requirement ID Description Priority FR-01.1 Allow recruiters to create, edit, and publish job postings High FR-01.2 AI-generated job descriptions based on role inputs High",
+    "source": "Joboro_BRD_v1.0.pdf",
+    "doc_type": "pdf",
+    "page": 3,
+    "heading": "",
+    "category": "general",
+    "project_id": 6
+  },
+  {
+    "text": "Joboro.ai  |  Business Requirements Document  \u2014  CONFIDENTIAL \nJoboro.ai BRD v1.0  |  \u00a9 2026 Joboro Inc.  |  Page 4 FR-01.3 Syndicate postings to external job boards with one click High FR-01.4 Support career page builder with employer branding Medium FR-01.5 Set knockout criteria to auto-disqualify ineligible candidates High  FR-02: Candidate Screening & Evaluation Requirement ID Description Priority FR-02.1 Parse and extract structured data from uploaded CVs/resumes High FR-02.2 Score and rank candidates based on role criteria High FR-02.3 Administer written tests with configurable questions High FR-02.4 Conduct AI-powered audio and video interviews High FR-02.5 Evaluate candidates on domain, cognitive, language, and non-verbal competence High FR-02.6 Apply bias control mechanisms to scoring algorithms High FR-02.7 Support skill-based scoring and custom evaluation rubrics Medium  FR-03: Pipeline & Workflow Management Requirement ID Description Priority FR-03.1 Multi-stage configurable hiring pipeline High FR-03.2 Kanban view of candidate pipeline stages Medium FR-03.3 Smart filters for searching and sorting candidates High FR-03.4 Candidate tagging and grouping Medium FR-03.5 Timeline tracking for each candidate\u2019s journey Medium FR-03.6 Pipeline automation and AI-driven follow-up messages High FR-03.7 Auto-reminders for pending actions Medium  FR-04: Interview & Scheduling Requirement ID Description Priority FR-04.1 Automated interview scheduling with calendar integration High FR-04.2 AI conducts async video/audio interviews High FR-04.3 Support human interview coordination within the platform High",
+    "source": "Joboro_BRD_v1.0.pdf",
+    "doc_type": "pdf",
+    "page": 4,
+    "heading": "",
+    "category": "general",
+    "project_id": 6
+  },
+  {
+    "text": "Joboro.ai  |  Business Requirements Document  \u2014  CONFIDENTIAL \nJoboro.ai BRD v1.0  |  \u00a9 2026 Joboro Inc.  |  Page 5 FR-04.4 AI-generated interview insights and recommendations High  FR-05: Integrations & Collaboration Requirement ID Description Priority FR-05.1 ATS sync (bidirectional) with major ATS platforms High FR-05.2 Onboarding system integration post-hire Medium FR-05.3 Team collaboration with role-based access control High FR-05.4 API access for enterprise customers Medium FR-05.5 Third-party integrations marketplace Low  FR-06: Analytics & Reporting Requirement ID Description Priority FR-06.1 Hiring analytics dashboard (time-to-hire, funnel conversion, etc.) High FR-06.2 Audit trails for all recruiter and AI actions High FR-06.3 Candidate-level performance reports High FR-06.4 AI recruitment benchmark statistics Medium FR-06.5 Diversity and inclusion metrics reporting Medium  5. Non-Functional Requirements Category Requirement Performance AI interview processing and scoring completed within 5 minutes of session end Scalability Support bulk hiring with 1,000+ concurrent candidates per account Availability 99.9% platform uptime SLA Security End-to-end encryption; compliance with GDPR, CCPA, and regional data laws Accessibility WCAG 2.1 AA compliance for candidate-facing interfaces Data Retention Configurable data retention policies per customer Localization Support for international hiring; multi-timezone scheduling AI Fairness Regular bias audits; explainability for AI scoring decisions",
+    "source": "Joboro_BRD_v1.0.pdf",
+    "doc_type": "pdf",
+    "page": 5,
+    "heading": "",
+    "category": "general",
+    "project_id": 6
+  },
+  {
+    "text": "Joboro.ai  |  Business Requirements Document  \u2014  CONFIDENTIAL \nJoboro.ai BRD v1.0  |  \u00a9 2026 Joboro Inc.  |  Page 6 Response Time Page load under 2 seconds; API response under 500ms (p95)  6. Key User Stories ID As a... I want to... So that... US-01 Recruiter Post a job and have it go live on multiple boards instantly I reach the widest candidate pool quickly US-02 Recruiter Configure a multi-stage screening workflow per role Each role gets the right evaluation depth US-03 Recruiter Receive a ranked shortlist within 72 hours I can focus on final interviews only US-04 Hiring Manager View AI-generated insights per candidate I make data-backed hiring decisions US-05 Candidate Complete an AI video interview at my convenience I can apply without rigid scheduling US-06 HR Admin Sync the platform with our existing ATS I avoid duplicate data entry US-07 Recruiter Track all candidate actions with an audit trail We maintain compliance and accountability  7. Assumptions & Constraints 7.1 Assumptions \u2022 Candidates have access to a device with a camera and microphone for AI video interviews \u2022 Employers will provide role-specific evaluation criteria during job setup \u2022 ATS integrations will be available via standard APIs (REST/OAuth) \u2022 The platform will operate as a SaaS model with cloud infrastructure \u2022 All candidates are actively job-seeking and have given consent for AI screening  7.2 Constraints \u2022 AI models must comply with applicable employment and discrimination laws by jurisdiction \u2022 No upfront payment model requires robust fraud prevention on the candidate side \u2022 International data residency requirements may limit cloud region flexibility \u2022 AI interview quality is dependent on candidate internet bandwidth and hardware",
+    "source": "Joboro_BRD_v1.0.pdf",
+    "doc_type": "pdf",
+    "page": 6,
+    "heading": "",
+    "category": "general",
+    "project_id": 6
+  },
+  {
+    "text": "Joboro.ai  |  Business Requirements Document  \u2014  CONFIDENTIAL \nJoboro.ai BRD v1.0  |  \u00a9 2026 Joboro Inc.  |  Page 7 8. Success Metrics & KPIs Metric Target Measurement Method Time-to-shortlist \u2264 72 hours from job post Platform analytics Recruiter time savings 10x vs traditional process User survey + time tracking Candidate satisfaction (CSAT) \u2265 4.2 / 5.0 Post-interview survey AI screening accuracy \u2265 90% match rate with human review Periodic audit sample Bias reduction Statistically comparable pass rates across demographics Diversity analytics Platform uptime \u2265 99.9% Infrastructure monitoring ATS sync success rate \u2265 99% Integration error logs Customer ROI 5x within 6 months Customer case studies  9. Risks & Mitigations Risk Likelihood Impact Mitigation AI bias in scoring decisions Medium High Regular bias audits; human review override; explainable AI scoring Data privacy regulatory breach Low Critical GDPR/CCPA compliance by design; DPA with all sub-processors Low candidate trust in AI interviews Medium Medium Transparent AI disclosure; option for human review escalation ATS integration failures Medium Medium Modular integration layer; fallback CSV export Scalability under bulk hiring load Low High Auto-scaling cloud architecture; load testing at 10x peak Competitor feature parity High Medium Accelerate unique features (bias control, 360\u00b0 eval, pre-vetted pool)  10. Stakeholders Stakeholder Role Responsibility Product Owner Internal Owns feature roadmap and prioritisation Engineering Lead Internal Technical delivery and architecture decisions",
+    "source": "Joboro_BRD_v1.0.pdf",
+    "doc_type": "pdf",
+    "page": 7,
+    "heading": "",
+    "category": "general",
+    "project_id": 6
+  },
+  {
+    "text": "Joboro.ai  |  Business Requirements Document  \u2014  CONFIDENTIAL \nJoboro.ai BRD v1.0  |  \u00a9 2026 Joboro Inc.  |  Page 8 AI/ML Team Internal Interview models, scoring algorithms, bias control HR / Recruiter Users External (Customer) Validate requirements; UAT Candidates External (End User) Participate in AI screening; provide feedback Legal & Compliance Internal Ensure regulatory adherence across jurisdictions Enterprise Integration Partners External ATS and HRIS vendor relationships  11. Glossary Term Definition ATS Applicant Tracking System \u2014 software used by recruiters to manage candidates AI Interview An asynchronous interview conducted and evaluated by Joboro\u2019s AI agents 360\u00b0 Evaluation Joboro\u2019s four-pillar assessment: domain, cognitive, language, non-verbal Knockout Criteria Hard filters that auto-disqualify candidates who do not meet minimum requirements Pipeline Automation Rules-based or AI-driven actions triggered at each hiring stage Pre-vetted Pool Joboro\u2019s curated database of candidates who have passed baseline AI screening BRD Business Requirements Document \u2014 this document SLA Service Level Agreement \u2014 contractual commitment on platform availability/performance  12. Document Sign-Off Role Name Signature Date Product Owner    Engineering Lead    Legal & Compliance    Executive Sponsor     This document is subject to change. All modifications must be reviewed and re-approved by the relevant stakeholders listed above.",
+    "source": "Joboro_BRD_v1.0.pdf",
+    "doc_type": "pdf",
+    "page": 8,
+    "heading": "",
+    "category": "general",
+    "project_id": 6
+  },
+  {
+    "text": "Mathematics for AI\nLinear Transformations and Matrix Representations\nDr. Kapila Dissanayaka",
+    "source": "Lecture-4.pdf",
+    "doc_type": "pdf",
+    "page": 1,
+    "heading": "",
+    "category": "general",
+    "project_id": 1
+  },
+  {
+    "text": "Learning Outcomes\nBy the end of this lecture, you should be able to:\n\u2022Understand the concept of linear transformations\n\u2022Represent linear transformations using matrices\n\u2022Explore the connection between linear maps and matrix \nmultiplication\n\u2022Apply linear transformations to vectors\n\u2022Recognize examples from AI\n2",
+    "source": "Lecture-4.pdf",
+    "doc_type": "pdf",
+    "page": 2,
+    "heading": "",
+    "category": "general",
+    "project_id": 1
+  },
+  {
+    "text": "Linear Transformation: Definition\n3",
+    "source": "Lecture-4.pdf",
+    "doc_type": "pdf",
+    "page": 3,
+    "heading": "",
+    "category": "general",
+    "project_id": 1
+  },
+  {
+    "text": "Examples of Linear Transformations\n4",
+    "source": "Lecture-4.pdf",
+    "doc_type": "pdf",
+    "page": 4,
+    "heading": "",
+    "category": "general",
+    "project_id": 1
+  },
+  {
+    "text": "Matrix Representation of Linear Transformations\n5",
+    "source": "Lecture-4.pdf",
+    "doc_type": "pdf",
+    "page": 5,
+    "heading": "",
+    "category": "general",
+    "project_id": 1
+  },
+  {
+    "text": "Constructing the Matrix of a Transformation\n6",
+    "source": "Lecture-4.pdf",
+    "doc_type": "pdf",
+    "page": 6,
+    "heading": "",
+    "category": "general",
+    "project_id": 1
+  },
+  {
+    "text": "Constructing the Matrix of a Transformation\nExamples\n7",
+    "source": "Lecture-4.pdf",
+    "doc_type": "pdf",
+    "page": 7,
+    "heading": "",
+    "category": "general",
+    "project_id": 1
+  },
+  {
+    "text": "Geometric Interpretation\n8",
+    "source": "Lecture-4.pdf",
+    "doc_type": "pdf",
+    "page": 8,
+    "heading": "",
+    "category": "general",
+    "project_id": 1
+  },
+  {
+    "text": "Geometric Interpretation\n9",
+    "source": "Lecture-4.pdf",
+    "doc_type": "pdf",
+    "page": 9,
+    "heading": "",
+    "category": "general",
+    "project_id": 1
+  },
+  {
+    "text": "Geometric Interpretation\n10",
+    "source": "Lecture-4.pdf",
+    "doc_type": "pdf",
+    "page": 10,
+    "heading": "",
+    "category": "general",
+    "project_id": 1
+  },
+  {
+    "text": "Geometric Interpretation\n11",
+    "source": "Lecture-4.pdf",
+    "doc_type": "pdf",
+    "page": 11,
+    "heading": "",
+    "category": "general",
+    "project_id": 1
+  },
+  {
+    "text": "Geometric Interpretation\n12",
+    "source": "Lecture-4.pdf",
+    "doc_type": "pdf",
+    "page": 12,
+    "heading": "",
+    "category": "general",
+    "project_id": 1
+  },
+  {
+    "text": "Geometric Interpretation\n13",
+    "source": "Lecture-4.pdf",
+    "doc_type": "pdf",
+    "page": 13,
+    "heading": "",
+    "category": "general",
+    "project_id": 1
+  },
+  {
+    "text": "Geometric Interpretation\n14",
+    "source": "Lecture-4.pdf",
+    "doc_type": "pdf",
+    "page": 14,
+    "heading": "",
+    "category": "general",
+    "project_id": 1
+  },
+  {
+    "text": "Common 2D Transformations (Matrices)\n15",
+    "source": "Lecture-4.pdf",
+    "doc_type": "pdf",
+    "page": 15,
+    "heading": "",
+    "category": "general",
+    "project_id": 1
+  },
+  {
+    "text": "Linear Transformations in AI\nNeural network layer as a linear transformation\n16",
+    "source": "Lecture-4.pdf",
+    "doc_type": "pdf",
+    "page": 16,
+    "heading": "",
+    "category": "general",
+    "project_id": 1
+  },
+  {
+    "text": "Linear Transformations in AI\nNeural network layer as a linear transformation\n17",
+    "source": "Lecture-4.pdf",
+    "doc_type": "pdf",
+    "page": 17,
+    "heading": "",
+    "category": "general",
+    "project_id": 1
+  },
+  {
+    "text": "Linear Transformations in AI\nData augmentation as linear transforms on image \ncoordinates\n18",
+    "source": "Lecture-4.pdf",
+    "doc_type": "pdf",
+    "page": 18,
+    "heading": "",
+    "category": "general",
+    "project_id": 1
+  },
+  {
+    "text": "Linear Transformations in AI\nData augmentation as linear transforms on image \ncoordinates\n19",
+    "source": "Lecture-4.pdf",
+    "doc_type": "pdf",
+    "page": 19,
+    "heading": "",
+    "category": "general",
+    "project_id": 1
+  },
+  {
+    "text": "Linear Transformations in AI\nFeature Reduction via PCA\n20",
+    "source": "Lecture-4.pdf",
+    "doc_type": "pdf",
+    "page": 20,
+    "heading": "",
+    "category": "general",
+    "project_id": 1
+  },
+  {
+    "text": "Linear Transformations in AI\nWord Embedding\n21",
+    "source": "Lecture-4.pdf",
+    "doc_type": "pdf",
+    "page": 21,
+    "heading": "",
+    "category": "general",
+    "project_id": 1
+  },
+  {
+    "text": "Composition of Linear Transformations\n22",
+    "source": "Lecture-4.pdf",
+    "doc_type": "pdf",
+    "page": 22,
+    "heading": "",
+    "category": "general",
+    "project_id": 1
+  },
+  {
+    "text": "Composition of Linear Transformations Example\n23",
+    "source": "Lecture-4.pdf",
+    "doc_type": "pdf",
+    "page": 23,
+    "heading": "",
+    "category": "general",
+    "project_id": 1
+  },
+  {
+    "text": "Invertibility of Linear Transformations\n24",
+    "source": "Lecture-4.pdf",
+    "doc_type": "pdf",
+    "page": 24,
+    "heading": "",
+    "category": "general",
+    "project_id": 1
+  },
+  {
+    "text": "Invertibility of Linear Transformations\n25",
+    "source": "Lecture-4.pdf",
+    "doc_type": "pdf",
+    "page": 25,
+    "heading": "",
+    "category": "general",
+    "project_id": 1
+  },
+  {
+    "text": "Invertibility of Linear Transformations\n26",
+    "source": "Lecture-4.pdf",
+    "doc_type": "pdf",
+    "page": 26,
+    "heading": "",
+    "category": "general",
+    "project_id": 1
+  },
+  {
+    "text": "Rank and Image of a Transformation\n27",
+    "source": "Lecture-4.pdf",
+    "doc_type": "pdf",
+    "page": 27,
+    "heading": "",
+    "category": "general",
+    "project_id": 1
+  },
+  {
+    "text": "Rank and Image of a Transformation\n28",
+    "source": "Lecture-4.pdf",
+    "doc_type": "pdf",
+    "page": 28,
+    "heading": "",
+    "category": "general",
+    "project_id": 1
+  },
+  {
+    "text": "Practice Problems\n29",
+    "source": "Lecture-4.pdf",
+    "doc_type": "pdf",
+    "page": 29,
+    "heading": "",
+    "category": "general",
+    "project_id": 1
+  },
+  {
+    "text": "Answers to Practice Problems\n30",
+    "source": "Lecture-4.pdf",
+    "doc_type": "pdf",
+    "page": 30,
+    "heading": "",
+    "category": "general",
+    "project_id": 1
+  },
+  {
+    "text": "Answers to Practice Problems\n31",
+    "source": "Lecture-4.pdf",
+    "doc_type": "pdf",
+    "page": 31,
+    "heading": "",
+    "category": "general",
+    "project_id": 1
+  },
+  {
+    "text": "Closing Remarks\n\u2022Linear transformations provide a unified view of many operations in AI\n\u2022Matrix representation enables efficient implementation and \ngeometric interpretation\n\u2022Understanding transformation properties (invertibility, rank) is crucial \nin ML models\n32",
+    "source": "Lecture-4.pdf",
+    "doc_type": "pdf",
+    "page": 32,
+    "heading": "",
+    "category": "general",
+    "project_id": 1
+  },
+  {
+    "text": "Next.js Code Review Model \u2014 Architecture Plan \u2014 March 2026\nArchitecture Planning Document\nA Compact Discriminative Code Review Model Specialised for Next.js\nProject type\nResearch proposal \u2014 model design and training plan\nFocus domain\nNext.js App Router (TypeScript / React Server Components)\nModel family\nDiscriminative encoder (CodeBERT / GraphCodeBERT) + LoRA\nDate\nMarch 2026\nABSTRACT\nThis document presents the complete architectural plan for a compact, locally deployable\ndiscriminative model for automated code review, specialised for the Next.js framework. The system\nfine-tunes a CodeBERT or GraphCodeBERT encoder using LoRA on a curated dataset of real GitHub pull\nrequest diffs, producing four simultaneous outputs: multi-label issue category classification, a quality\nscore, a severity rating, and line-level issue localisation. The quantised model is approximately 50 MB\nand runs at sub-150ms inference on CPU only \u2014 requiring no internet connection, no cloud service, and\nno GPU. The document covers input design, encoder architecture, multi-task training, dataset\nconstruction, evaluation strategy, and deployment tooling across nine planned project phases.\nKeywords: automated code review \u00b7 discriminative classification \u00b7 CodeBERT \u00b7 LoRA fine-tuning \u00b7 Next.js \u00b7 multi-task\nlearning \u00b7 local deployment",
+    "source": "architecture_plan_final.pdf",
+    "doc_type": "pdf",
+    "page": 1,
+    "heading": "",
+    "category": "general",
+    "project_id": 1
+  },
+  {
+    "text": "Architecture Planning \u2014 Next.js Discriminative Code Review Model\np. 2\nNext.js Code Review Model \u2014 Architecture Plan \u2014 March 2026\n1   System Overview\nEnd-to-end pipeline from data collection to deployed developer tool\nThe system is structured as a single pre-trained transformer encoder fine-tuned on\ndomain-specific data, with all inference running on the developer's local machine. No code leaves\nthe local environment. Figure 1 shows the complete pipeline across six stages.\nFigure 1. End-to-end pipeline: GitHub PR data collection \u0000 input construction \u0000 CodeBERT encoder \u0000 LoRA fine-tuning \u0000\n task heads \u0000 ONNX deployment.\n \nThe six pipeline stages are: (1) collecting real pull request diffs and inline reviewer comments from\nhigh-activity Next.js repositories via the GitHub REST API; (2) constructing the tokenised input\nsequence by concatenating the file path, diff, and surrounding file context; (3) encoding the\nsequence through the pre-trained CodeBERT or GraphCodeBERT transformer; (4) applying LoRA\nadapters to the upper transformer layers during fine-tuning; (5) routing encoder outputs to four\ntask-specific heads; and (6) exporting to ONNX with 4-bit quantisation for local deployment.\n2   Input Representation\nToken sequence construction, segment embeddings, 512-token budget\nThe input encodes three complementary information sources: the file path, the code diff, and\nsurrounding file context. For Next.js specifically, file context is not optional \u2014 whether a\ncomponent is a Server or Client Component is determined by the 'use client' directive at the file\ntop, which does not appear in a diff of a changed function within that file.",
+    "source": "architecture_plan_final.pdf",
+    "doc_type": "pdf",
+    "page": 2,
+    "heading": "",
+    "category": "general",
+    "project_id": 1
+  },
+  {
+    "text": "Architecture Planning \u2014 Next.js Discriminative Code Review Model\np. 3\nNext.js Code Review Model \u2014 Architecture Plan \u2014 March 2026\nFigure 2. Input token sequence construction. Three sources are concatenated with [CLS] / [SEP] separators, summed\n with positional and segment embeddings, and passed to the encoder.\n \n2.1  Token sequence structure\nThe sequence follows the BERT two-segment format: [CLS] [SEP] [SEP]. The [CLS] token\nproduces the aggregate representation consumed by the three document-level heads. Per-token\nrepresentations feed the line-level head. The 512-token budget is allocated as: file path (fewer than\n10 tokens), diff (up to 350 tokens), and context (approximately 30 surrounding lines). Over 92% of\nTypeScript diffs in the target repositories fit without truncation.\n2.2  Why file context is necessary for Next.js\nIssue category\nMissing from diff alone\nPresent in file context\nnextjs-pattern\nServer vs. Client Component boundary\n'use client' at file top\nsecurity\nWhether Server Action validates its\ncaller\n'use server' + auth guard pattern\nperformance\nWhether fetch is inside a cached route\nsegment\nexport const revalidate in layout.ts\nTable 1. Three categories that require file context for correct classification. Without context, all three diffs appear\n ambiguous.\n \n3   Encoder Architecture and LoRA Fine-tuning\n12-layer RoBERTa encoder, layer-freezing strategy, rank-8 adapters\nThe encoder backbone is either CodeBERT or GraphCodeBERT \u2014 both RoBERTa-based\narchitectures with 12 transformer layers, 12 self-attention heads, a 768-d hidden dimension, and\napproximately 125 million parameters. They differ in pre-training: CodeBERT uses masked\nlanguage modelling on NL-PL pairs; GraphCodeBERT additionally incorporates data flow graphs,\ngiving it stronger structural code understanding for tasks requiring variable dependency\nreasoning.",
+    "source": "architecture_plan_final.pdf",
+    "doc_type": "pdf",
+    "page": 3,
+    "heading": "",
+    "category": "general",
+    "project_id": 1
+  },
+  {
+    "text": "Architecture Planning \u2014 Next.js Discriminative Code Review Model\np. 4\nNext.js Code Review Model \u2014 Architecture Plan \u2014 March 2026\nFigure 3. Encoder internals with LoRA and task heads. Layers 1-8 are frozen; layers 9-12 receive rank-8 LoRA adapters\n on W_q and W_v. The [CLS] token drives three sequence-level heads; all token vectors drive the line-level\n classification head.\n \n3.1  Layer-freezing strategy\nResearch by Shi et al. (2023) established that lower transformer layers encode general syntactic\ncode properties while upper layers encode semantic, task-specific features. Layers 1-8 are\ntherefore frozen during fine-tuning and layers 9-12 receive LoRA adapters. This reduces trainable\nparameters from 125M to approximately 300K \u2014 less than 0.25% of total parameters \u2014 while\npreserving the general code understanding acquired during pre-training on hundreds of millions\nof code-text pairs.\n3.2  LoRA adapter configuration\nrank (r)         : 8\nalpha (scaling)  : 16\ntarget modules   : q_proj, v_proj  (attention only)\nlayers           : 9, 10, 11, 12  (upper 4 of 12)\ntrainable params : 4 layers x 2 matrices x 2 x (768 x 8)  =  196,608\ninitialisation   : A ~ N(0, sigma),  B = 0  (zero initial perturbation)",
+    "source": "architecture_plan_final.pdf",
+    "doc_type": "pdf",
+    "page": 4,
+    "heading": "",
+    "category": "general",
+    "project_id": 1
+  },
+  {
+    "text": "Architecture Planning \u2014 Next.js Discriminative Code Review Model\np. 5\nNext.js Code Review Model \u2014 Architecture Plan \u2014 March 2026\nWith rank r=8 and hidden dimension d=768, each LoRA adapter contributes 2 x 768 x 8 = 12,288\nparameters per layer. Applied to Q and V weight matrices in the top four layers, the total LoRA\noverhead is 196,608 parameters \u2014 less than 0.16% of the base model size. The zero initialisation of\nmatrix B ensures the model begins fine-tuning exactly at the pre-trained checkpoint with no initial\nperturbation.",
+    "source": "architecture_plan_final.pdf",
+    "doc_type": "pdf",
+    "page": 5,
+    "heading": "",
+    "category": "general",
+    "project_id": 1
+  },
+  {
+    "text": "Architecture Planning \u2014 Next.js Discriminative Code Review Model\np. 6\nNext.js Code Review Model \u2014 Architecture Plan \u2014 March 2026\n4   Multi-Task Output Heads\nFour simultaneous outputs from one shared encoder\nFour task-specific heads operate on the shared encoder output. Three heads use the [CLS]\naggregate vector; one uses all token vectors. All heads are single linear projections followed by an\nactivation \u2014 shallow by design to keep inference fast.\nHead\nInput\nDim out\nActivation\nLoss\nCategory\n[CLS] 768-d\n8 logits\nSigmoid\nBinary cross-entropy per class\nQuality\n[CLS] 768-d\nScalar\nSigmoid\nMean squared error (MSE)\nSeverity\n[CLS] 768-d\n3 logits\nSoftmax\nCross-entropy\nLine-level\nAll tokens 512x768\n1/token\nSigmoid\nBinary cross-entropy per token\n Table 2. Four multi-task heads. All share one encoder; no encoder weights are duplicated.\n \n4.1  Combined training objective\nL_total = w1 * L_category  +  w2 * L_quality  +  w3 * L_severity  +  w4 * L_lines\nInitial weights  : w1 = w2 = w3 = w4 = 1.0\nGrid search over : w1 in {0.5, 1.0, 2.0}  |  w4 in {0.5, 1.0, 2.0}\nAlternative      : uncertainty weighting (Kendall et al., CVPR 2018)\nWHY MULTI-TASK LEARNING HELPS HERE\nIssue category, severity, and quality are correlated signals. A security issue is\nalmost always critical; a naming issue is almost invariably informational. Training all\nheads simultaneously forces the shared encoder to build representations that capture\nthese correlations, improving performance on each individual head beyond what\nsingle-task fine-tuning achieves \u2014 especially for low-frequency categories where\ntraining data is scarce.\n5   Dataset Construction\nGitHub PR collection, filtering, label extraction, splitting",
+    "source": "architecture_plan_final.pdf",
+    "doc_type": "pdf",
+    "page": 6,
+    "heading": "",
+    "category": "general",
+    "project_id": 1
+  },
+  {
+    "text": "Architecture Planning \u2014 Next.js Discriminative Code Review Model\np. 7\nNext.js Code Review Model \u2014 Architecture Plan \u2014 March 2026\nFigure 4. Dataset construction and labelling pipeline. Source repositories are queried via the GitHub REST API; raw PR\ndata is filtered; labels are extracted from inline reviewer comments; the dataset is split by PR to prevent leakage.\n5.1  Collection and filtering\nClosed pull requests are retrieved using GET /repos/{owner}/{repo}/pulls?state=closed. Per PR:\nthe diff (Accept: application/vnd.github.v3.diff) and inline comments (GET\n/pulls/{pull_number}/comments). Inclusion criteria: only .ts and .tsx diffs; comment body length\n>= 40 characters; comment author type != Bot; comment body does not match /^(LGTM|looks\ngood|nit:)/i; diff contains at least 3 changed lines. Target: 20,000-30,000 raw samples yielding\n15,000-20,000 after filtering.\n5.2  Label extraction\nLabels are extracted in two passes. Pass 1 applies deterministic keyword patterns (e.g.\n'useCallback', 're-render' -> performance; 'exposed', 'sanitize' -> security; 'Server Component', 'App\nRouter' -> nextjs-pattern). Pass 2 sends unmatched samples to GPT-4o with a structured\nJSON-output prompt. A 10% random sample of all auto-labelled examples is manually verified to\nestablish label reliability before training begins.\n5.3  Train / validation / test split\nThe dataset is split at the PR level (not the comment level) using an 80/10/10 ratio. Splitting by PR\nprevents data leakage: comments from the same PR share diff context and reviewer style, so\nplacing them across splits would inflate test performance unrealistically. Stratified sampling is\nused to ensure each split preserves the overall class distribution across all eight issue categories.\n6   Training Setup\nHyperparameters, schedule, hardware requirements",
+    "source": "architecture_plan_final.pdf",
+    "doc_type": "pdf",
+    "page": 7,
+    "heading": "",
+    "category": "general",
+    "project_id": 1
+  },
+  {
+    "text": "Architecture Planning \u2014 Next.js Discriminative Code Review Model\np. 8\nNext.js Code Review Model \u2014 Architecture Plan \u2014 March 2026\n Figure 5. Training pipeline with loss equation and per-step details.\n \nBase model\nmicrosoft/codebert-base or microsoft/graphcodebert-base\nTokeniser\nRobertaTokenizer | max_length=512 | truncation=True\nLoRA rank / alpha\nr=8 | alpha=16 | target=q_proj,v_proj | layers 9-12\nBatch size\n32 (gradient accumulation steps=4 if VRAM < 8GB)\nLearning rate\n2e-4 (LoRA params) | 5e-6 (unfrozen encoder layers)\nLR schedule\nLinear warmup 500 steps then cosine decay\nEpochs\n5 | early stopping on val macro-F1 | patience=2\nOptimiser\nAdamW | beta1=0.9, beta2=0.999 | weight_decay=0.01\nMin hardware\n8 GB VRAM GPU or CPU-only (slower, ~4x longer)\nLibraries\ntransformers + peft + bitsandbytes (HuggingFace stack)\n Table 3. Training hyperparameter configuration.",
+    "source": "architecture_plan_final.pdf",
+    "doc_type": "pdf",
+    "page": 8,
+    "heading": "",
+    "category": "general",
+    "project_id": 1
+  },
+  {
+    "text": "Architecture Planning \u2014 Next.js Discriminative Code Review Model\np. 9\nNext.js Code Review Model \u2014 Architecture Plan \u2014 March 2026\n7   Local Deployment Architecture\nONNX export, quantisation, VS Code / CLI / pre-commit integration\nFigure 6. Deployment architecture. The quantised ONNX model is loaded by the ONNX Runtime and exposed through\n three integration points. Sample output shows line-level annotations.\n \nThe trained model is exported to ONNX format with 4-bit dynamic quantisation, reducing the file\nfrom approximately 130 MB (float32) to approximately 50 MB (int4). ONNX Runtime handles CPU\ninference at sub-150ms per diff on standard developer hardware. Three integration modes are\nplanned:\nVS Code Extension\nIntegrates with the VS Code Diagnostics API. Surfaces inline annotations as\nyellow (warning) or red (critical) markers on changed lines whenever a\nTypeScript file is saved.\nCLI tool npx\nnextreview\nScans a directory and produces a structured JSON report or human-readable\nconsole output. Can be piped into other tools.\nPre-commit hook\nRuns on staged diffs before each commit. Blocks the commit if any critical\nissues are detected; lists flagged lines with category and confidence score.\n8   Evaluation Framework\nAutomatic metrics, human evaluation, ablation design",
+    "source": "architecture_plan_final.pdf",
+    "doc_type": "pdf",
+    "page": 9,
+    "heading": "",
+    "category": "general",
+    "project_id": 1
+  },
+  {
+    "text": "Architecture Planning \u2014 Next.js Discriminative Code Review Model\np. 10\nNext.js Code Review Model \u2014 Architecture Plan \u2014 March 2026\n Figure 7. Evaluation framework with three pillars and four baselines.\n \nEvaluation is structured across three complementary pillars. Automatic metrics provide objective\ncomparison against baselines. Human evaluation establishes real-world validity with practising\ndevelopers. Ablation studies attribute performance to specific architectural choices.\n8.1  Automatic metrics\nFor the category head: per-class F1, precision, recall; macro and micro-averaged F1; AUC-ROC per\ncategory. For the quality regression head: MSE and Pearson correlation. For severity: accuracy and\nweighted F1. For the line-level head: Top-5 and Top-10 accuracy, following the evaluation\nmethodology of LineVul (Fu & Tantithamthavorn, MSR 2022).\n8.2  Human evaluation protocol\nA stratified sample of 100 diffs is drawn from the held-out test set and presented to three\nindependent Next.js developers with 3+ years of experience. Each rates the model output on a\n5-point Likert scale across three dimensions: correctness, actionability, and localisation\nspecificity. Fleiss' kappa measures inter-rater agreement. The same 100 diffs are also evaluated by\nESLint and GPT-4o for direct comparison.\n9   Project Timeline\nNine phases across approximately 19 weeks\nPh\nas\ne\nActivity\nDuration\nDeliverable\n1\nLiterature review and architecture finalisation\n2 weeks\nThis document + literature review\nPDF\n2\nGitHub data collection pipeline\n2 weeks\nRaw PR dataset (~20K samples)\n3\nCleaning, label extraction, train/val/test split\n2 weeks\nAnnotated dataset (~15K samples)\n4\nBaseline: untuned CodeBERT on all four heads\n1 week\nBaseline metric report\n5\nLoRA fine-tuning and hyperparameter grid search\n3 weeks\nBest fine-tuned model checkpoint\n6\nAblation study (backbone, input strategy, MTL)\n2 weeks\nAblation results table\n7\nHuman evaluation study\n2 weeks\nHuman evaluation report\n8\nONNX quantisation and deployment tooling\n2 weeks\nVS Code extension + CLI prototype\n9\nPaper writing and submission\n3 weeks\nResearch paper draft\n Table 4. Project timeline \u2014 nine phases, approximately 19 weeks total.",
+    "source": "architecture_plan_final.pdf",
+    "doc_type": "pdf",
+    "page": 10,
+    "heading": "",
+    "category": "general",
+    "project_id": 1
+  },
+  {
+    "text": "Mathematics for AI\nLinear Transformations and Matrix Representations\nDr. Kapila Dissanayaka",
+    "source": "Lecture-4.pdf",
+    "doc_type": "pdf",
+    "page": 1,
+    "heading": "",
+    "category": "general",
+    "project_id": 4
+  },
+  {
+    "text": "Learning Outcomes\nBy the end of this lecture, you should be able to:\n\u2022Understand the concept of linear transformations\n\u2022Represent linear transformations using matrices\n\u2022Explore the connection between linear maps and matrix \nmultiplication\n\u2022Apply linear transformations to vectors\n\u2022Recognize examples from AI\n2",
+    "source": "Lecture-4.pdf",
+    "doc_type": "pdf",
+    "page": 2,
+    "heading": "",
+    "category": "general",
+    "project_id": 4
+  },
+  {
+    "text": "Linear Transformation: Definition\n3",
+    "source": "Lecture-4.pdf",
+    "doc_type": "pdf",
+    "page": 3,
+    "heading": "",
+    "category": "general",
+    "project_id": 4
+  },
+  {
+    "text": "Examples of Linear Transformations\n4",
+    "source": "Lecture-4.pdf",
+    "doc_type": "pdf",
+    "page": 4,
+    "heading": "",
+    "category": "general",
+    "project_id": 4
+  },
+  {
+    "text": "Matrix Representation of Linear Transformations\n5",
+    "source": "Lecture-4.pdf",
+    "doc_type": "pdf",
+    "page": 5,
+    "heading": "",
+    "category": "general",
+    "project_id": 4
+  },
+  {
+    "text": "Constructing the Matrix of a Transformation\n6",
+    "source": "Lecture-4.pdf",
+    "doc_type": "pdf",
+    "page": 6,
+    "heading": "",
+    "category": "general",
+    "project_id": 4
+  },
+  {
+    "text": "Constructing the Matrix of a Transformation\nExamples\n7",
+    "source": "Lecture-4.pdf",
+    "doc_type": "pdf",
+    "page": 7,
+    "heading": "",
+    "category": "general",
+    "project_id": 4
+  },
+  {
+    "text": "Geometric Interpretation\n8",
+    "source": "Lecture-4.pdf",
+    "doc_type": "pdf",
+    "page": 8,
+    "heading": "",
+    "category": "general",
+    "project_id": 4
+  },
+  {
+    "text": "Geometric Interpretation\n9",
+    "source": "Lecture-4.pdf",
+    "doc_type": "pdf",
+    "page": 9,
+    "heading": "",
+    "category": "general",
+    "project_id": 4
+  },
+  {
+    "text": "Geometric Interpretation\n10",
+    "source": "Lecture-4.pdf",
+    "doc_type": "pdf",
+    "page": 10,
+    "heading": "",
+    "category": "general",
+    "project_id": 4
+  },
+  {
+    "text": "Geometric Interpretation\n11",
+    "source": "Lecture-4.pdf",
+    "doc_type": "pdf",
+    "page": 11,
+    "heading": "",
+    "category": "general",
+    "project_id": 4
+  },
+  {
+    "text": "Geometric Interpretation\n12",
+    "source": "Lecture-4.pdf",
+    "doc_type": "pdf",
+    "page": 12,
+    "heading": "",
+    "category": "general",
+    "project_id": 4
+  },
+  {
+    "text": "Geometric Interpretation\n13",
+    "source": "Lecture-4.pdf",
+    "doc_type": "pdf",
+    "page": 13,
+    "heading": "",
+    "category": "general",
+    "project_id": 4
+  },
+  {
+    "text": "Geometric Interpretation\n14",
+    "source": "Lecture-4.pdf",
+    "doc_type": "pdf",
+    "page": 14,
+    "heading": "",
+    "category": "general",
+    "project_id": 4
+  },
+  {
+    "text": "Common 2D Transformations (Matrices)\n15",
+    "source": "Lecture-4.pdf",
+    "doc_type": "pdf",
+    "page": 15,
+    "heading": "",
+    "category": "general",
+    "project_id": 4
+  },
+  {
+    "text": "Linear Transformations in AI\nNeural network layer as a linear transformation\n16",
+    "source": "Lecture-4.pdf",
+    "doc_type": "pdf",
+    "page": 16,
+    "heading": "",
+    "category": "general",
+    "project_id": 4
+  },
+  {
+    "text": "Linear Transformations in AI\nNeural network layer as a linear transformation\n17",
+    "source": "Lecture-4.pdf",
+    "doc_type": "pdf",
+    "page": 17,
+    "heading": "",
+    "category": "general",
+    "project_id": 4
+  },
+  {
+    "text": "Linear Transformations in AI\nData augmentation as linear transforms on image \ncoordinates\n18",
+    "source": "Lecture-4.pdf",
+    "doc_type": "pdf",
+    "page": 18,
+    "heading": "",
+    "category": "general",
+    "project_id": 4
+  },
+  {
+    "text": "Linear Transformations in AI\nData augmentation as linear transforms on image \ncoordinates\n19",
+    "source": "Lecture-4.pdf",
+    "doc_type": "pdf",
+    "page": 19,
+    "heading": "",
+    "category": "general",
+    "project_id": 4
+  },
+  {
+    "text": "Linear Transformations in AI\nFeature Reduction via PCA\n20",
+    "source": "Lecture-4.pdf",
+    "doc_type": "pdf",
+    "page": 20,
+    "heading": "",
+    "category": "general",
+    "project_id": 4
+  },
+  {
+    "text": "Linear Transformations in AI\nWord Embedding\n21",
+    "source": "Lecture-4.pdf",
+    "doc_type": "pdf",
+    "page": 21,
+    "heading": "",
+    "category": "general",
+    "project_id": 4
+  },
+  {
+    "text": "Composition of Linear Transformations\n22",
+    "source": "Lecture-4.pdf",
+    "doc_type": "pdf",
+    "page": 22,
+    "heading": "",
+    "category": "general",
+    "project_id": 4
+  },
+  {
+    "text": "Composition of Linear Transformations Example\n23",
+    "source": "Lecture-4.pdf",
+    "doc_type": "pdf",
+    "page": 23,
+    "heading": "",
+    "category": "general",
+    "project_id": 4
+  },
+  {
+    "text": "Invertibility of Linear Transformations\n24",
+    "source": "Lecture-4.pdf",
+    "doc_type": "pdf",
+    "page": 24,
+    "heading": "",
+    "category": "general",
+    "project_id": 4
+  },
+  {
+    "text": "Invertibility of Linear Transformations\n25",
+    "source": "Lecture-4.pdf",
+    "doc_type": "pdf",
+    "page": 25,
+    "heading": "",
+    "category": "general",
+    "project_id": 4
+  },
+  {
+    "text": "Invertibility of Linear Transformations\n26",
+    "source": "Lecture-4.pdf",
+    "doc_type": "pdf",
+    "page": 26,
+    "heading": "",
+    "category": "general",
+    "project_id": 4
+  },
+  {
+    "text": "Rank and Image of a Transformation\n27",
+    "source": "Lecture-4.pdf",
+    "doc_type": "pdf",
+    "page": 27,
+    "heading": "",
+    "category": "general",
+    "project_id": 4
+  },
+  {
+    "text": "Rank and Image of a Transformation\n28",
+    "source": "Lecture-4.pdf",
+    "doc_type": "pdf",
+    "page": 28,
+    "heading": "",
+    "category": "general",
+    "project_id": 4
+  },
+  {
+    "text": "Practice Problems\n29",
+    "source": "Lecture-4.pdf",
+    "doc_type": "pdf",
+    "page": 29,
+    "heading": "",
+    "category": "general",
+    "project_id": 4
+  },
+  {
+    "text": "Answers to Practice Problems\n30",
+    "source": "Lecture-4.pdf",
+    "doc_type": "pdf",
+    "page": 30,
+    "heading": "",
+    "category": "general",
+    "project_id": 4
+  },
+  {
+    "text": "Answers to Practice Problems\n31",
+    "source": "Lecture-4.pdf",
+    "doc_type": "pdf",
+    "page": 31,
+    "heading": "",
+    "category": "general",
+    "project_id": 4
+  },
+  {
+    "text": "Closing Remarks\n\u2022Linear transformations provide a unified view of many operations in AI\n\u2022Matrix representation enables efficient implementation and \ngeometric interpretation\n\u2022Understanding transformation properties (invertibility, rank) is crucial \nin ML models\n32",
+    "source": "Lecture-4.pdf",
+    "doc_type": "pdf",
+    "page": 32,
+    "heading": "",
+    "category": "general",
+    "project_id": 4
+  },
+  {
+    "text": "Mathematics for AI\nLinear Transformations and Matrix Representations\nDr. Kapila Dissanayaka",
+    "source": "Lecture-4.pdf",
+    "doc_type": "pdf",
+    "page": 1,
+    "heading": "",
+    "category": "general",
+    "project_id": 3
+  },
+  {
+    "text": "Learning Outcomes\nBy the end of this lecture, you should be able to:\n\u2022Understand the concept of linear transformations\n\u2022Represent linear transformations using matrices\n\u2022Explore the connection between linear maps and matrix \nmultiplication\n\u2022Apply linear transformations to vectors\n\u2022Recognize examples from AI\n2",
+    "source": "Lecture-4.pdf",
+    "doc_type": "pdf",
+    "page": 2,
+    "heading": "",
+    "category": "general",
+    "project_id": 3
+  },
+  {
+    "text": "Linear Transformation: Definition\n3",
+    "source": "Lecture-4.pdf",
+    "doc_type": "pdf",
+    "page": 3,
+    "heading": "",
+    "category": "general",
+    "project_id": 3
+  },
+  {
+    "text": "Examples of Linear Transformations\n4",
+    "source": "Lecture-4.pdf",
+    "doc_type": "pdf",
+    "page": 4,
+    "heading": "",
+    "category": "general",
+    "project_id": 3
+  },
+  {
+    "text": "Matrix Representation of Linear Transformations\n5",
+    "source": "Lecture-4.pdf",
+    "doc_type": "pdf",
+    "page": 5,
+    "heading": "",
+    "category": "general",
+    "project_id": 3
+  },
+  {
+    "text": "Constructing the Matrix of a Transformation\n6",
+    "source": "Lecture-4.pdf",
+    "doc_type": "pdf",
+    "page": 6,
+    "heading": "",
+    "category": "general",
+    "project_id": 3
+  },
+  {
+    "text": "Constructing the Matrix of a Transformation\nExamples\n7",
+    "source": "Lecture-4.pdf",
+    "doc_type": "pdf",
+    "page": 7,
+    "heading": "",
+    "category": "general",
+    "project_id": 3
+  },
+  {
+    "text": "Geometric Interpretation\n8",
+    "source": "Lecture-4.pdf",
+    "doc_type": "pdf",
+    "page": 8,
+    "heading": "",
+    "category": "general",
+    "project_id": 3
+  },
+  {
+    "text": "Geometric Interpretation\n9",
+    "source": "Lecture-4.pdf",
+    "doc_type": "pdf",
+    "page": 9,
+    "heading": "",
+    "category": "general",
+    "project_id": 3
+  },
+  {
+    "text": "Geometric Interpretation\n10",
+    "source": "Lecture-4.pdf",
+    "doc_type": "pdf",
+    "page": 10,
+    "heading": "",
+    "category": "general",
+    "project_id": 3
+  },
+  {
+    "text": "Geometric Interpretation\n11",
+    "source": "Lecture-4.pdf",
+    "doc_type": "pdf",
+    "page": 11,
+    "heading": "",
+    "category": "general",
+    "project_id": 3
+  },
+  {
+    "text": "Geometric Interpretation\n12",
+    "source": "Lecture-4.pdf",
+    "doc_type": "pdf",
+    "page": 12,
+    "heading": "",
+    "category": "general",
+    "project_id": 3
+  },
+  {
+    "text": "Geometric Interpretation\n13",
+    "source": "Lecture-4.pdf",
+    "doc_type": "pdf",
+    "page": 13,
+    "heading": "",
+    "category": "general",
+    "project_id": 3
+  },
+  {
+    "text": "Geometric Interpretation\n14",
+    "source": "Lecture-4.pdf",
+    "doc_type": "pdf",
+    "page": 14,
+    "heading": "",
+    "category": "general",
+    "project_id": 3
+  },
+  {
+    "text": "Common 2D Transformations (Matrices)\n15",
+    "source": "Lecture-4.pdf",
+    "doc_type": "pdf",
+    "page": 15,
+    "heading": "",
+    "category": "general",
+    "project_id": 3
+  },
+  {
+    "text": "Linear Transformations in AI\nNeural network layer as a linear transformation\n16",
+    "source": "Lecture-4.pdf",
+    "doc_type": "pdf",
+    "page": 16,
+    "heading": "",
+    "category": "general",
+    "project_id": 3
+  },
+  {
+    "text": "Linear Transformations in AI\nNeural network layer as a linear transformation\n17",
+    "source": "Lecture-4.pdf",
+    "doc_type": "pdf",
+    "page": 17,
+    "heading": "",
+    "category": "general",
+    "project_id": 3
+  },
+  {
+    "text": "Linear Transformations in AI\nData augmentation as linear transforms on image \ncoordinates\n18",
+    "source": "Lecture-4.pdf",
+    "doc_type": "pdf",
+    "page": 18,
+    "heading": "",
+    "category": "general",
+    "project_id": 3
+  },
+  {
+    "text": "Linear Transformations in AI\nData augmentation as linear transforms on image \ncoordinates\n19",
+    "source": "Lecture-4.pdf",
+    "doc_type": "pdf",
+    "page": 19,
+    "heading": "",
+    "category": "general",
+    "project_id": 3
+  },
+  {
+    "text": "Linear Transformations in AI\nFeature Reduction via PCA\n20",
+    "source": "Lecture-4.pdf",
+    "doc_type": "pdf",
+    "page": 20,
+    "heading": "",
+    "category": "general",
+    "project_id": 3
+  },
+  {
+    "text": "Linear Transformations in AI\nWord Embedding\n21",
+    "source": "Lecture-4.pdf",
+    "doc_type": "pdf",
+    "page": 21,
+    "heading": "",
+    "category": "general",
+    "project_id": 3
+  },
+  {
+    "text": "Composition of Linear Transformations\n22",
+    "source": "Lecture-4.pdf",
+    "doc_type": "pdf",
+    "page": 22,
+    "heading": "",
+    "category": "general",
+    "project_id": 3
+  },
+  {
+    "text": "Composition of Linear Transformations Example\n23",
+    "source": "Lecture-4.pdf",
+    "doc_type": "pdf",
+    "page": 23,
+    "heading": "",
+    "category": "general",
+    "project_id": 3
+  },
+  {
+    "text": "Invertibility of Linear Transformations\n24",
+    "source": "Lecture-4.pdf",
+    "doc_type": "pdf",
+    "page": 24,
+    "heading": "",
+    "category": "general",
+    "project_id": 3
+  },
+  {
+    "text": "Invertibility of Linear Transformations\n25",
+    "source": "Lecture-4.pdf",
+    "doc_type": "pdf",
+    "page": 25,
+    "heading": "",
+    "category": "general",
+    "project_id": 3
+  },
+  {
+    "text": "Invertibility of Linear Transformations\n26",
+    "source": "Lecture-4.pdf",
+    "doc_type": "pdf",
+    "page": 26,
+    "heading": "",
+    "category": "general",
+    "project_id": 3
+  },
+  {
+    "text": "Rank and Image of a Transformation\n27",
+    "source": "Lecture-4.pdf",
+    "doc_type": "pdf",
+    "page": 27,
+    "heading": "",
+    "category": "general",
+    "project_id": 3
+  },
+  {
+    "text": "Rank and Image of a Transformation\n28",
+    "source": "Lecture-4.pdf",
+    "doc_type": "pdf",
+    "page": 28,
+    "heading": "",
+    "category": "general",
+    "project_id": 3
+  },
+  {
+    "text": "Practice Problems\n29",
+    "source": "Lecture-4.pdf",
+    "doc_type": "pdf",
+    "page": 29,
+    "heading": "",
+    "category": "general",
+    "project_id": 3
+  },
+  {
+    "text": "Answers to Practice Problems\n30",
+    "source": "Lecture-4.pdf",
+    "doc_type": "pdf",
+    "page": 30,
+    "heading": "",
+    "category": "general",
+    "project_id": 3
+  },
+  {
+    "text": "Answers to Practice Problems\n31",
+    "source": "Lecture-4.pdf",
+    "doc_type": "pdf",
+    "page": 31,
+    "heading": "",
+    "category": "general",
+    "project_id": 3
+  },
+  {
+    "text": "Closing Remarks\n\u2022Linear transformations provide a unified view of many operations in AI\n\u2022Matrix representation enables efficient implementation and \ngeometric interpretation\n\u2022Understanding transformation properties (invertibility, rank) is crucial \nin ML models\n32",
+    "source": "Lecture-4.pdf",
+    "doc_type": "pdf",
+    "page": 32,
+    "heading": "",
+    "category": "general",
+    "project_id": 3
+  },
+  {
+    "text": "Next.js Code Review Model \u2014 Architecture Plan \u2014 March 2026\nArchitecture Planning Document\nA Compact Discriminative Code Review Model Specialised for Next.js\nProject type\nResearch proposal \u2014 model design and training plan\nFocus domain\nNext.js App Router (TypeScript / React Server Components)\nModel family\nDiscriminative encoder (CodeBERT / GraphCodeBERT) + LoRA\nDate\nMarch 2026\nABSTRACT\nThis document presents the complete architectural plan for a compact, locally deployable\ndiscriminative model for automated code review, specialised for the Next.js framework. The system\nfine-tunes a CodeBERT or GraphCodeBERT encoder using LoRA on a curated dataset of real GitHub pull\nrequest diffs, producing four simultaneous outputs: multi-label issue category classification, a quality\nscore, a severity rating, and line-level issue localisation. The quantised model is approximately 50 MB\nand runs at sub-150ms inference on CPU only \u2014 requiring no internet connection, no cloud service, and\nno GPU. The document covers input design, encoder architecture, multi-task training, dataset\nconstruction, evaluation strategy, and deployment tooling across nine planned project phases.\nKeywords: automated code review \u00b7 discriminative classification \u00b7 CodeBERT \u00b7 LoRA fine-tuning \u00b7 Next.js \u00b7 multi-task\nlearning \u00b7 local deployment",
+    "source": "architecture_plan_final.pdf",
+    "doc_type": "pdf",
+    "page": 1,
+    "heading": "",
+    "category": "general",
+    "project_id": 3
+  },
+  {
+    "text": "Architecture Planning \u2014 Next.js Discriminative Code Review Model\np. 2\nNext.js Code Review Model \u2014 Architecture Plan \u2014 March 2026\n1   System Overview\nEnd-to-end pipeline from data collection to deployed developer tool\nThe system is structured as a single pre-trained transformer encoder fine-tuned on\ndomain-specific data, with all inference running on the developer's local machine. No code leaves\nthe local environment. Figure 1 shows the complete pipeline across six stages.\nFigure 1. End-to-end pipeline: GitHub PR data collection \u0000 input construction \u0000 CodeBERT encoder \u0000 LoRA fine-tuning \u0000\n task heads \u0000 ONNX deployment.\n \nThe six pipeline stages are: (1) collecting real pull request diffs and inline reviewer comments from\nhigh-activity Next.js repositories via the GitHub REST API; (2) constructing the tokenised input\nsequence by concatenating the file path, diff, and surrounding file context; (3) encoding the\nsequence through the pre-trained CodeBERT or GraphCodeBERT transformer; (4) applying LoRA\nadapters to the upper transformer layers during fine-tuning; (5) routing encoder outputs to four\ntask-specific heads; and (6) exporting to ONNX with 4-bit quantisation for local deployment.\n2   Input Representation\nToken sequence construction, segment embeddings, 512-token budget\nThe input encodes three complementary information sources: the file path, the code diff, and\nsurrounding file context. For Next.js specifically, file context is not optional \u2014 whether a\ncomponent is a Server or Client Component is determined by the 'use client' directive at the file\ntop, which does not appear in a diff of a changed function within that file.",
+    "source": "architecture_plan_final.pdf",
+    "doc_type": "pdf",
+    "page": 2,
+    "heading": "",
+    "category": "general",
+    "project_id": 3
+  },
+  {
+    "text": "Architecture Planning \u2014 Next.js Discriminative Code Review Model\np. 3\nNext.js Code Review Model \u2014 Architecture Plan \u2014 March 2026\nFigure 2. Input token sequence construction. Three sources are concatenated with [CLS] / [SEP] separators, summed\n with positional and segment embeddings, and passed to the encoder.\n \n2.1  Token sequence structure\nThe sequence follows the BERT two-segment format: [CLS] [SEP] [SEP]. The [CLS] token\nproduces the aggregate representation consumed by the three document-level heads. Per-token\nrepresentations feed the line-level head. The 512-token budget is allocated as: file path (fewer than\n10 tokens), diff (up to 350 tokens), and context (approximately 30 surrounding lines). Over 92% of\nTypeScript diffs in the target repositories fit without truncation.\n2.2  Why file context is necessary for Next.js\nIssue category\nMissing from diff alone\nPresent in file context\nnextjs-pattern\nServer vs. Client Component boundary\n'use client' at file top\nsecurity\nWhether Server Action validates its\ncaller\n'use server' + auth guard pattern\nperformance\nWhether fetch is inside a cached route\nsegment\nexport const revalidate in layout.ts\nTable 1. Three categories that require file context for correct classification. Without context, all three diffs appear\n ambiguous.\n \n3   Encoder Architecture and LoRA Fine-tuning\n12-layer RoBERTa encoder, layer-freezing strategy, rank-8 adapters\nThe encoder backbone is either CodeBERT or GraphCodeBERT \u2014 both RoBERTa-based\narchitectures with 12 transformer layers, 12 self-attention heads, a 768-d hidden dimension, and\napproximately 125 million parameters. They differ in pre-training: CodeBERT uses masked\nlanguage modelling on NL-PL pairs; GraphCodeBERT additionally incorporates data flow graphs,\ngiving it stronger structural code understanding for tasks requiring variable dependency\nreasoning.",
+    "source": "architecture_plan_final.pdf",
+    "doc_type": "pdf",
+    "page": 3,
+    "heading": "",
+    "category": "general",
+    "project_id": 3
+  },
+  {
+    "text": "Architecture Planning \u2014 Next.js Discriminative Code Review Model\np. 4\nNext.js Code Review Model \u2014 Architecture Plan \u2014 March 2026\nFigure 3. Encoder internals with LoRA and task heads. Layers 1-8 are frozen; layers 9-12 receive rank-8 LoRA adapters\n on W_q and W_v. The [CLS] token drives three sequence-level heads; all token vectors drive the line-level\n classification head.\n \n3.1  Layer-freezing strategy\nResearch by Shi et al. (2023) established that lower transformer layers encode general syntactic\ncode properties while upper layers encode semantic, task-specific features. Layers 1-8 are\ntherefore frozen during fine-tuning and layers 9-12 receive LoRA adapters. This reduces trainable\nparameters from 125M to approximately 300K \u2014 less than 0.25% of total parameters \u2014 while\npreserving the general code understanding acquired during pre-training on hundreds of millions\nof code-text pairs.\n3.2  LoRA adapter configuration\nrank (r)         : 8\nalpha (scaling)  : 16\ntarget modules   : q_proj, v_proj  (attention only)\nlayers           : 9, 10, 11, 12  (upper 4 of 12)\ntrainable params : 4 layers x 2 matrices x 2 x (768 x 8)  =  196,608\ninitialisation   : A ~ N(0, sigma),  B = 0  (zero initial perturbation)",
+    "source": "architecture_plan_final.pdf",
+    "doc_type": "pdf",
+    "page": 4,
+    "heading": "",
+    "category": "general",
+    "project_id": 3
+  },
+  {
+    "text": "Architecture Planning \u2014 Next.js Discriminative Code Review Model\np. 5\nNext.js Code Review Model \u2014 Architecture Plan \u2014 March 2026\nWith rank r=8 and hidden dimension d=768, each LoRA adapter contributes 2 x 768 x 8 = 12,288\nparameters per layer. Applied to Q and V weight matrices in the top four layers, the total LoRA\noverhead is 196,608 parameters \u2014 less than 0.16% of the base model size. The zero initialisation of\nmatrix B ensures the model begins fine-tuning exactly at the pre-trained checkpoint with no initial\nperturbation.",
+    "source": "architecture_plan_final.pdf",
+    "doc_type": "pdf",
+    "page": 5,
+    "heading": "",
+    "category": "general",
+    "project_id": 3
+  },
+  {
+    "text": "Architecture Planning \u2014 Next.js Discriminative Code Review Model\np. 6\nNext.js Code Review Model \u2014 Architecture Plan \u2014 March 2026\n4   Multi-Task Output Heads\nFour simultaneous outputs from one shared encoder\nFour task-specific heads operate on the shared encoder output. Three heads use the [CLS]\naggregate vector; one uses all token vectors. All heads are single linear projections followed by an\nactivation \u2014 shallow by design to keep inference fast.\nHead\nInput\nDim out\nActivation\nLoss\nCategory\n[CLS] 768-d\n8 logits\nSigmoid\nBinary cross-entropy per class\nQuality\n[CLS] 768-d\nScalar\nSigmoid\nMean squared error (MSE)\nSeverity\n[CLS] 768-d\n3 logits\nSoftmax\nCross-entropy\nLine-level\nAll tokens 512x768\n1/token\nSigmoid\nBinary cross-entropy per token\n Table 2. Four multi-task heads. All share one encoder; no encoder weights are duplicated.\n \n4.1  Combined training objective\nL_total = w1 * L_category  +  w2 * L_quality  +  w3 * L_severity  +  w4 * L_lines\nInitial weights  : w1 = w2 = w3 = w4 = 1.0\nGrid search over : w1 in {0.5, 1.0, 2.0}  |  w4 in {0.5, 1.0, 2.0}\nAlternative      : uncertainty weighting (Kendall et al., CVPR 2018)\nWHY MULTI-TASK LEARNING HELPS HERE\nIssue category, severity, and quality are correlated signals. A security issue is\nalmost always critical; a naming issue is almost invariably informational. Training all\nheads simultaneously forces the shared encoder to build representations that capture\nthese correlations, improving performance on each individual head beyond what\nsingle-task fine-tuning achieves \u2014 especially for low-frequency categories where\ntraining data is scarce.\n5   Dataset Construction\nGitHub PR collection, filtering, label extraction, splitting",
+    "source": "architecture_plan_final.pdf",
+    "doc_type": "pdf",
+    "page": 6,
+    "heading": "",
+    "category": "general",
+    "project_id": 3
+  },
+  {
+    "text": "Architecture Planning \u2014 Next.js Discriminative Code Review Model\np. 7\nNext.js Code Review Model \u2014 Architecture Plan \u2014 March 2026\nFigure 4. Dataset construction and labelling pipeline. Source repositories are queried via the GitHub REST API; raw PR\ndata is filtered; labels are extracted from inline reviewer comments; the dataset is split by PR to prevent leakage.\n5.1  Collection and filtering\nClosed pull requests are retrieved using GET /repos/{owner}/{repo}/pulls?state=closed. Per PR:\nthe diff (Accept: application/vnd.github.v3.diff) and inline comments (GET\n/pulls/{pull_number}/comments). Inclusion criteria: only .ts and .tsx diffs; comment body length\n>= 40 characters; comment author type != Bot; comment body does not match /^(LGTM|looks\ngood|nit:)/i; diff contains at least 3 changed lines. Target: 20,000-30,000 raw samples yielding\n15,000-20,000 after filtering.\n5.2  Label extraction\nLabels are extracted in two passes. Pass 1 applies deterministic keyword patterns (e.g.\n'useCallback', 're-render' -> performance; 'exposed', 'sanitize' -> security; 'Server Component', 'App\nRouter' -> nextjs-pattern). Pass 2 sends unmatched samples to GPT-4o with a structured\nJSON-output prompt. A 10% random sample of all auto-labelled examples is manually verified to\nestablish label reliability before training begins.\n5.3  Train / validation / test split\nThe dataset is split at the PR level (not the comment level) using an 80/10/10 ratio. Splitting by PR\nprevents data leakage: comments from the same PR share diff context and reviewer style, so\nplacing them across splits would inflate test performance unrealistically. Stratified sampling is\nused to ensure each split preserves the overall class distribution across all eight issue categories.\n6   Training Setup\nHyperparameters, schedule, hardware requirements",
+    "source": "architecture_plan_final.pdf",
+    "doc_type": "pdf",
+    "page": 7,
+    "heading": "",
+    "category": "general",
+    "project_id": 3
+  },
+  {
+    "text": "Architecture Planning \u2014 Next.js Discriminative Code Review Model\np. 8\nNext.js Code Review Model \u2014 Architecture Plan \u2014 March 2026\n Figure 5. Training pipeline with loss equation and per-step details.\n \nBase model\nmicrosoft/codebert-base or microsoft/graphcodebert-base\nTokeniser\nRobertaTokenizer | max_length=512 | truncation=True\nLoRA rank / alpha\nr=8 | alpha=16 | target=q_proj,v_proj | layers 9-12\nBatch size\n32 (gradient accumulation steps=4 if VRAM < 8GB)\nLearning rate\n2e-4 (LoRA params) | 5e-6 (unfrozen encoder layers)\nLR schedule\nLinear warmup 500 steps then cosine decay\nEpochs\n5 | early stopping on val macro-F1 | patience=2\nOptimiser\nAdamW | beta1=0.9, beta2=0.999 | weight_decay=0.01\nMin hardware\n8 GB VRAM GPU or CPU-only (slower, ~4x longer)\nLibraries\ntransformers + peft + bitsandbytes (HuggingFace stack)\n Table 3. Training hyperparameter configuration.",
+    "source": "architecture_plan_final.pdf",
+    "doc_type": "pdf",
+    "page": 8,
+    "heading": "",
+    "category": "general",
+    "project_id": 3
+  },
+  {
+    "text": "Architecture Planning \u2014 Next.js Discriminative Code Review Model\np. 9\nNext.js Code Review Model \u2014 Architecture Plan \u2014 March 2026\n7   Local Deployment Architecture\nONNX export, quantisation, VS Code / CLI / pre-commit integration\nFigure 6. Deployment architecture. The quantised ONNX model is loaded by the ONNX Runtime and exposed through\n three integration points. Sample output shows line-level annotations.\n \nThe trained model is exported to ONNX format with 4-bit dynamic quantisation, reducing the file\nfrom approximately 130 MB (float32) to approximately 50 MB (int4). ONNX Runtime handles CPU\ninference at sub-150ms per diff on standard developer hardware. Three integration modes are\nplanned:\nVS Code Extension\nIntegrates with the VS Code Diagnostics API. Surfaces inline annotations as\nyellow (warning) or red (critical) markers on changed lines whenever a\nTypeScript file is saved.\nCLI tool npx\nnextreview\nScans a directory and produces a structured JSON report or human-readable\nconsole output. Can be piped into other tools.\nPre-commit hook\nRuns on staged diffs before each commit. Blocks the commit if any critical\nissues are detected; lists flagged lines with category and confidence score.\n8   Evaluation Framework\nAutomatic metrics, human evaluation, ablation design",
+    "source": "architecture_plan_final.pdf",
+    "doc_type": "pdf",
+    "page": 9,
+    "heading": "",
+    "category": "general",
+    "project_id": 3
+  },
+  {
+    "text": "Architecture Planning \u2014 Next.js Discriminative Code Review Model\np. 10\nNext.js Code Review Model \u2014 Architecture Plan \u2014 March 2026\n Figure 7. Evaluation framework with three pillars and four baselines.\n \nEvaluation is structured across three complementary pillars. Automatic metrics provide objective\ncomparison against baselines. Human evaluation establishes real-world validity with practising\ndevelopers. Ablation studies attribute performance to specific architectural choices.\n8.1  Automatic metrics\nFor the category head: per-class F1, precision, recall; macro and micro-averaged F1; AUC-ROC per\ncategory. For the quality regression head: MSE and Pearson correlation. For severity: accuracy and\nweighted F1. For the line-level head: Top-5 and Top-10 accuracy, following the evaluation\nmethodology of LineVul (Fu & Tantithamthavorn, MSR 2022).\n8.2  Human evaluation protocol\nA stratified sample of 100 diffs is drawn from the held-out test set and presented to three\nindependent Next.js developers with 3+ years of experience. Each rates the model output on a\n5-point Likert scale across three dimensions: correctness, actionability, and localisation\nspecificity. Fleiss' kappa measures inter-rater agreement. The same 100 diffs are also evaluated by\nESLint and GPT-4o for direct comparison.\n9   Project Timeline\nNine phases across approximately 19 weeks\nPh\nas\ne\nActivity\nDuration\nDeliverable\n1\nLiterature review and architecture finalisation\n2 weeks\nThis document + literature review\nPDF\n2\nGitHub data collection pipeline\n2 weeks\nRaw PR dataset (~20K samples)\n3\nCleaning, label extraction, train/val/test split\n2 weeks\nAnnotated dataset (~15K samples)\n4\nBaseline: untuned CodeBERT on all four heads\n1 week\nBaseline metric report\n5\nLoRA fine-tuning and hyperparameter grid search\n3 weeks\nBest fine-tuned model checkpoint\n6\nAblation study (backbone, input strategy, MTL)\n2 weeks\nAblation results table\n7\nHuman evaluation study\n2 weeks\nHuman evaluation report\n8\nONNX quantisation and deployment tooling\n2 weeks\nVS Code extension + CLI prototype\n9\nPaper writing and submission\n3 weeks\nResearch paper draft\n Table 4. Project timeline \u2014 nine phases, approximately 19 weeks total.",
+    "source": "architecture_plan_final.pdf",
+    "doc_type": "pdf",
+    "page": 10,
+    "heading": "",
+    "category": "general",
+    "project_id": 3
+  },
+  {
+    "text": "1\nLiterature Review\nDiscriminative Code Analysis Using Pre-trained Language Models for\nFramework-Specific Automated Code Review\nResearch Proposal | March 2026 | Next.js Code Review Specialisation Project\nAbstract\nAutomated code review (ACR) has advanced considerably through the application of\npre-trained language models, yet existing systems remain predominantly generative,\ncloud-dependent, and trained on generic multi-language corpora that inadequately\nrepresent the semantics of modern full-stack JavaScript frameworks. This literature\nreview synthesises research across four interconnected areas \u2014 automated code review\nsystems, pre-trained code language models, code classification and defect detection,\nand multi-task learning \u2014 to establish the theoretical and empirical foundations for a\ncompact, discriminative code review model specifically designed for Next.js. The review\nidentifies a clear gap at the intersection of framework-specialised review, discriminative\nmulti-task architectures, and local deployment constraints, and articulates four concrete\ncontributions this work makes to address that gap.\nKeyword\ns:\nAutomated code review | Discriminative classification | CodeBERT | GraphCodeBERT |\nMulti-task learning | Next.js | Line-level localisation | LoRA fine-tuning\n1. Introduction: The Code Review Problem\nCode review \u2014 the systematic inspection of source code by one or more developers\nprior to integration into a production codebase \u2014 is among the most widely adopted\nquality assurance practices in modern software engineering. Empirical evidence\nconsistently demonstrates its value: reviewed code exhibits lower defect rates,\nhigher internal quality, and is generally easier to comprehend and maintain\n(Bacchelli & Bird, 2013; McIntosh et al., 2014; Morales et al., 2015). Bavota & Russo,\n2015 found that unreviewed code introduces bugs at more than twice the rate of\nreviewed code, a finding that has been corroborated across multiple industrial and\nopen-source contexts.\nDespite its benefits, code review imposes a substantial and often underestimated\ncost. With more than 28 million software developers globally spending between 10\nand 20 percent of their working time on review tasks, the aggregate demand\nexceeds 22 million developer hours every day. The landmark study by Bacchelli &\nBird (ICSE 2013), which surveyed 873 programmers and 165 managers across\nMicrosoft, found that while defect detection is the primary stated motivation for\ncode review, its actual outcomes are considerably broader \u2014 encompassing\nknowledge transfer, team awareness, and the proposal of alternative design\nsolutions. This gap between expected and actual outcomes suggests that human",
+    "source": "literature_review_academic.pdf",
+    "doc_type": "pdf",
+    "page": 1,
+    "heading": "",
+    "category": "general",
+    "project_id": 2
+  },
+  {
+    "text": "Discriminative Code Analysis for Automated Review\nLiterature Review\n2\nreviewers are simultaneously overburdened with mechanical checks and\nunderutilised for higher-order reasoning tasks.\nModern large-scale development contexts magnify this tension further. Sadowski et\nal. (ICSE SEIP, 2018) conducted an extensive study of code review practices at\nGoogle and found that developers routinely review hundreds of lines of code per\nsession, yet the quality and depth of review degrades significantly with increasing\ndiff size. Automated tooling that can triage incoming changes, flag likely issues, and\nlocalise problematic lines would directly reduce cognitive load and enable reviewers\nto allocate attention more effectively.\nThe challenge is further compounded by the specificity of modern frameworks.\nNext.js, currently the fourth most popular web framework according to the Stack\nOverflow Developer Survey 2023, introduced a fundamentally new execution model\nwith the App Router in version 13 (stable in version 14, 2023). As noted in the\nofficial Next.js security documentation (2023), React Server Components represent\na novel paradigm that blurs the line between server and client code execution,\ncreating new categories of defect \u2014 including accidental data exposure, incorrect\ncache directives, misplaced 'use client' boundaries, and insecure Server Action\nimplementations \u2014 that have no direct analogue in prior frameworks. No existing\nautomated code review system is trained to recognise or classify these patterns.\nThis is the primary motivation and gap this research addresses.\nResearch gap\nExisting ACR systems are generative, cloud-dependent, or trained on generic\nmulti-language corpora. No compact, discriminative, locally deployable model\nexists that is specialised for the semantic patterns of the Next.js App Router. This\nwork fills that gap.\n2. Automated Code Review: History and State of the Art\nResearch into automated support for code review can be traced across three\nbroadly distinct generations, distinguished by their underlying methodology and the\nscope of review tasks they address.\n2.1 First generation: Static analysis and rule-based systems\nThe earliest automated code review tools operated through static analysis \u2014\nexhaustive enumeration of syntactic and stylistic rules against which source code is\nchecked without execution. Tools such as Checkstyle, FindBugs, and ESLint\nrepresent this approach, as does the FindBugs-based ReviewBot system\n(Balachandran, 2013) which integrated static analysis into the Gerrit code review\nplatform. As noted by Singh et al. (2017), static analysis tools provide precise,\nreproducible feedback on well-defined rule violations but are fundamentally",
+    "source": "literature_review_academic.pdf",
+    "doc_type": "pdf",
+    "page": 2,
+    "heading": "",
+    "category": "general",
+    "project_id": 2
+  },
+  {
+    "text": "Discriminative Code Analysis for Automated Review Literature Review 3 incapable of reasoning about context, semantics, or intent. A rule engine cannot determine that a particular use of fetch() without a cache directive is problematic specifically because the enclosing component is a Next.js Server Component \u2014 such reasoning requires understanding of both the code and its execution environment. Additionally, most code review platforms \u2014 including Gerrit, Phabricator, and Code Flow \u2014 provide only basic automation support and do not reduce reviewers' burden in a meaningful way (Tymchuk et al., 2015; Pascarella et al., 2018). This gap between the available tooling and the needs of modern development teams motivated the transition to learning-based approaches. 2.2 Second generation: Neural machine translation models The second generation of ACR systems reframed code review as a machine translation problem \u2014 specifically, treating the transformation of a code diff into either a reviewer comment or a corrected code version as a sequence-to-sequence learning task. Tufano et al. (ICSE 2021) were among the first to frame both the contributor and reviewer perspectives of code review as neural machine translation tasks, using Transformer architectures trained on real GitHub pull request data. Their work established the foundational insight that reviewer comments and code diffs constitute naturally paired training data, making large-scale supervised learning feasible without manual annotation. DeepReview (Lo, PAKDD 2019) introduced multi-instance learning for review classification, providing an early demonstration that discriminative models \u2014 models that predict a class rather than generate text \u2014 could be trained on review corpora with meaningful accuracy. This work is a direct intellectual predecessor of the discriminative architecture proposed in the present research. 2.3 Third generation: Pre-trained transformer models The defining work of the current generation is CodeReviewer (Li et al., ESEC/FSE 2022), which introduced large-scale pre-training on code review data. \u201cCodeReviewer defines three canonical ACR sub-tasks \u2014 code change quality estimation (does this diff need a review?), review comment generation (what should the reviewer say?), and code refinement (given a comment, fix the code) \u2014 and pre-trains a transformer encoder-decoder on a large multilingual dataset of GitHub pull requests spanning nine programming languages, establishing benchmarks that have become the standard reference point for subsequent work.\u201d Critically for the present work, the code change quality estimation sub-task is a discriminative binary classification problem \u2014 precisely the architecture proposed here \u2014 and CodeReviewer demonstrates that this task is tractable from PR data alone, without",
+    "source": "literature_review_academic.pdf",
+    "doc_type": "pdf",
+    "page": 3,
+    "heading": "",
+    "category": "general",
+    "project_id": 2
+  },
+  {
+    "text": "languages, establishing benchmarks that have become the standard reference point for subsequent work.\u201d Critically for the present work, the code change quality estimation sub-task is a discriminative binary classification problem \u2014 precisely the architecture proposed here \u2014 and CodeReviewer demonstrates that this task is tractable from PR data alone, without requiring manual labelling beyond the signal implicit in whether a reviewer left a comment. Subsequent work has explored a range of extensions. Tufano et al. (ASE 2022) demonstrated that pre-trained models substantially improve over raw Transformer",
+    "source": "literature_review_academic.pdf",
+    "doc_type": "pdf",
+    "page": 3,
+    "heading": "",
+    "category": "general",
+    "project_id": 2
+  },
+  {
+    "text": "Discriminative Code Analysis for Automated Review Literature Review 4 baselines on all three CodeReviewer tasks. Lu et al. (LLaMA-Reviewer, 2023) applied LoRA fine-tuning to LLaMA-series models, supporting all three ACR tasks without full retraining. Carllm (ACM Transactions, 2024) fine-tuned LLaMA with chain-of-thought prompting on 1,793 open-source projects, demonstrating that comprehensibility \u2014 not just accuracy \u2014 improves with fine-tuning, a finding with direct implications for the design of user-facing outputs in this work. Haider et al. (2024) applied QLoRA to CodeLlama and Llama 3.1 for review comment generation, reporting 25\u201383% improvement over untuned baselines, further validating the PEFT approach for code review tasks. A significant practical limitation of all third-generation systems is their cloud dependency. Cihan et al. (2024), in an industrial study of an LLM-based review tool deployed across 238 practitioners and 4,335 pull requests, found that while such tools complement human review in principle, cloud infrastructure requirements introduce latency, data privacy risks, and cost barriers that limit adoption \u2014 particularly in regulated industries and for proprietary codebases. This observation directly motivates the offline, local deployment model proposed in the present work. 2.4 Limitations of current approaches for Next.js All extant ACR systems share a common limitation with respect to the target domain of this research: they are trained on generic, multi-language corpora in which Next.js-specific patterns are statistically negligible. The App Router paradigm, introduced in Next.js 13 (2022) and stabilised in version 14 (2023), introduced concepts \u2014 Server Components, Client Components, Server Actions, the 'use client' boundary, revalidate cache semantics, and route segment configuration \u2014 that require specialised semantic understanding. A model that has never encountered these patterns in training cannot be expected to classify their misuse reliably, regardless of its general code understanding capability. This gap is compounded by the rapid pace of Next.js versioning: App Router patterns that were best practice in version 13 differ meaningfully from those in version 15, and general-purpose models trained before 2023 have no exposure to these patterns at all. 3. Pre-trained Code Language Models The proposed discriminative architecture requires a strong, compact code representation backbone. This section surveys the relevant pre-trained models, their architectural properties, and the empirical evidence bearing on their suitability as a fine-tuning base for the classification tasks proposed here. 3.1 CodeBERT: bimodal pre-training for code and language The foundational model for this work is CodeBERT (Feng et al., Findings of EMNLP 2020, arXiv:2002.08155), a bimodal pre-trained model",
+    "source": "literature_review_academic.pdf",
+    "doc_type": "pdf",
+    "page": 4,
+    "heading": "",
+    "category": "general",
+    "project_id": 2
+  },
+  {
+    "text": "models, their architectural properties, and the empirical evidence bearing on their suitability as a fine-tuning base for the classification tasks proposed here. 3.1 CodeBERT: bimodal pre-training for code and language The foundational model for this work is CodeBERT (Feng et al., Findings of EMNLP 2020, arXiv:2002.08155), a bimodal pre-trained model based on the RoBERTa architecture, trained on a corpus of 2.1 million bimodal NL-PL pairs (documentation",
+    "source": "literature_review_academic.pdf",
+    "doc_type": "pdf",
+    "page": 4,
+    "heading": "",
+    "category": "general",
+    "project_id": 2
+  },
+  {
+    "text": "Discriminative Code Analysis for Automated Review Literature Review 5 paired with code) and 6.4 million unimodal code samples across six programming languages, using a hybrid objective combining masked language modelling and replaced token detection. \u201cCodeBERT learns general-purpose representations that support downstream NL-PL applications. We train CodeBERT with a hybrid objective function that incorporates replaced token detection, which enables the model to utilise both bimodal data of NL-PL pairs and unimodal data.\u201d With 125 million parameters and a serialised size of approximately 500 MB \u2014 reducible to under 200 MB with 4-bit quantisation \u2014 CodeBERT is the most practically deployable of the candidate encoders. Fine-tuned for binary classification on the CodeXGLUE defect detection benchmark (Devign dataset), a CodeBERT-based model achieves 97.2% accuracy, 98.05% precision, 97.31% recall, and an F1-score of 97.68%, outperforming earlier deep learning baselines by a substantial margin (Code Vulnerability Detection study, arXiv:2508.11710). 3.2 GraphCodeBERT: structural semantics via data flow GraphCodeBERT (Guo et al., ICLR 2021, arXiv:2009.08366) extends CodeBERT by incorporating semantic-level structural information \u2014 specifically, data flow graphs derived from abstract syntax trees \u2014 into the pre-training objective. This allows the model to capture variable dependency chains and data flow relationships that are invisible to purely token-based encoders. \u201cGraphCodeBERT overcomes the limitation of treating code fragments solely as token sequences. By leveraging data flow \u2014 which encodes how values flow between variables \u2014 the model can capture semantic-level structural properties of code that are relevant for tasks requiring deeper program understanding.\u201d For the task of detecting performance and logic issues in Next.js code, where understanding the flow of data between Server Components, Client Components, and API route handlers is essential, GraphCodeBERT's structural awareness represents a meaningful advantage over CodeBERT. The two models constitute the primary ablation comparison in the proposed experimental design. Research applying supervised contrastive learning (SCL-CVD) to GraphCodeBERT with LoRA fine-tuning on three real-world vulnerability datasets (Wang et al., Computers and Security 2024) reports a relative improvement of 35.68% over baseline approaches, while LoRA introduces neither inference latency nor input sequence length constraints \u2014 a critical property for local deployment. 3.3 Layer-wise representation properties and fine-tuning behaviour A key question for the proposed training approach concerns which model layers to fine-tune and which to freeze. Shi et al. (arXiv:2304.05216, 2023) conducted a systematic empirical study of CodeBERT's internal representations, finding that lexical, syntactic, and structural properties of source code are progressively encoded in lower, intermediate, and",
+    "source": "literature_review_academic.pdf",
+    "doc_type": "pdf",
+    "page": 5,
+    "heading": "",
+    "category": "general",
+    "project_id": 2
+  },
+  {
+    "text": "behaviour A key question for the proposed training approach concerns which model layers to fine-tune and which to freeze. Shi et al. (arXiv:2304.05216, 2023) conducted a systematic empirical study of CodeBERT's internal representations, finding that lexical, syntactic, and structural properties of source code are progressively encoded in lower, intermediate, and higher layers respectively, while semantic",
+    "source": "literature_review_academic.pdf",
+    "doc_type": "pdf",
+    "page": 5,
+    "heading": "",
+    "category": "general",
+    "project_id": 2
+  },
+  {
+    "text": "Discriminative Code Analysis for Automated Review\nLiterature Review\n6\nproperties are distributed across the entire model. Crucially, fine-tuning preserves\nmost pre-trained code properties \u2014 the model does not catastrophically forget its\npre-trained code knowledge when adapted to a downstream classification task.\nThis finding has two practical implications for this work. First, it supports a strategy\nof freezing the lower encoder layers (which encode general token-level code\nstructure) and fine-tuning only the upper layers and task-specific heads, reducing\ntraining cost without sacrificing code understanding quality. Second, it supports the\nuse of LoRA adapters (Hu et al., 2021, arXiv:2106.09685) applied specifically to the\nattention weight matrices in the upper layers, where the bulk of task-specific\nsemantic adaptation occurs. A systematic literature review on parameter-efficient\nfine-tuning for code models confirms that defect detection using LoRA on CodeBERT\nand GraphCodeBERT achieves strong results on established benchmarks with\nsubstantially reduced parameter counts (PEFT survey for code models, 2024).\n3.4 Alternative backbone candidates\nModel\nParam\ns\nArchitecture\nKey property\nSuitability\nCodeBERT\n125 M\nRoBERTa encoder\nBimodal NL+PL\npre-training\nPrimary candidate\nGraphCodeBERT\n125 M\nRoBERTa + data\nflow\nStructural code\nsemantics\nAblation baseline\nCodeBERTa-smal\nl\n84 M\nRoBERTa\n(smaller)\nFaster inference\nSpeed comparison\nCodeT5 (enc.\nonly)\n60 M\nT5 encoder\nIdentifier-aware\nSecondary\ncandidate\nUniXcoder\n125 M\nUnified\ncross-modal\nCode + AST + NL unified\nFuture evaluation\nTable 1. Candidate encoder models for the discriminative backbone. All models are\ncompatible with the [CLS] token classification paradigm and the 512-token input length\navailable within the standard BERT context window.\n4. Code Classification and Defect Detection\nThe multi-label issue category head at the core of the proposed architecture is an\ninstance of the broader family of code classification problems, for which a\nsubstantial and mature body of empirical evidence exists. This section surveys the\nmost directly relevant results, from function-level defect detection to fine-grained\nline-level prediction.\n4.1 Function-level defect and vulnerability detection\nThe CodeXGLUE benchmark (Lu et al., NeurIPS Datasets and Benchmarks, 2021)\nestablished a standard evaluation suite for code intelligence tasks, including defect",
+    "source": "literature_review_academic.pdf",
+    "doc_type": "pdf",
+    "page": 6,
+    "heading": "",
+    "category": "general",
+    "project_id": 2
+  },
+  {
+    "text": "Discriminative Code Analysis for Automated Review Literature Review 7 detection. Research combining graph neural networks with pre-trained transformer encoders for software defect detection on the CodeXGLUE Defect sub-task achieves F1-scores of up to 91.7%, representing a 23.6-point absolute improvement over LSTM-based baselines \u2014 demonstrating that pre-trained transformer encoders substantially outperform earlier sequence models on code classification. For the more specific task of vulnerability detection, the contrastive learning approach SCL-CVD (Wang et al., Computers & Security, 2024) fine-tunes GraphCodeBERT using LoRA on three widely used benchmark datasets \u2014 Devign, Reveal, and Big-Vul \u2014 and reports a relative improvement of 35.68% over all baselines, including vanilla CodeBERT and GraphCodeBERT fine-tuned with standard cross-entropy loss. The paper attributes this improvement to the contrastive objective's ability to separate the representations of vulnerable and non-vulnerable samples in the embedding space, which is particularly effective when the two classes are superficially similar \u2014 a characteristic shared by the issue categories targeted in this work, where a correctly structured Server Component and one with a subtle cache misconfiguration are lexically nearly identical. 4.2 Multi-label classification for code quality The issue category head proposed here produces multi-label outputs: a single diff may receive multiple category labels simultaneously. This differs from the binary classification setting of most defect detection research. The technical approach is well-established: replacing the binary sigmoid output of a standard classifier with a multi-label sigmoid head trained with binary cross-entropy loss per class, with a shared encoder whose [CLS] token representation serves as the aggregate code representation. This formulation is identical to that used in multi-label text classification tasks in NLP, and has been demonstrated to transfer effectively to code classification settings with code-aware encoders (CodeXGLUE, Lu et al., 2021). A key practical challenge in multi-label code classification is class imbalance: issues such as security vulnerabilities are rare compared to naming or performance issues. Research on vulnerability detection consistently identifies imbalance as a critical factor (Cheshkov et al., ICCQ 2024), and prior work recommends focal loss or sample weighting strategies to address this. The label extraction methodology proposed in this work (extracting labels from existing reviewer comments using a pre-classification step) must account for this imbalance during both collection and training. 4.3 Line-level prediction: the LineVul precedent The line-level localisation head proposed in this architecture draws directly from LineVul (Fu & Tantithamthavorn, MSR 2022, DOI:10.1145/3524842.3528452), the first transformer-based system to predict software vulnerabilities at the line",
+    "source": "literature_review_academic.pdf",
+    "doc_type": "pdf",
+    "page": 7,
+    "heading": "",
+    "category": "general",
+    "project_id": 2
+  },
+  {
+    "text": "comments using a pre-classification step) must account for this imbalance during both collection and training. 4.3 Line-level prediction: the LineVul precedent The line-level localisation head proposed in this architecture draws directly from LineVul (Fu & Tantithamthavorn, MSR 2022, DOI:10.1145/3524842.3528452), the first transformer-based system to predict software vulnerabilities at the line level rather than the function or file level.",
+    "source": "literature_review_academic.pdf",
+    "doc_type": "pdf",
+    "page": 7,
+    "heading": "",
+    "category": "general",
+    "project_id": 2
+  },
+  {
+    "text": "Discriminative Code Analysis for Automated Review Literature Review 8 \u201cLineVul achieves an F-measure of 0.91 \u2014 160% to 379% better than state-of-the-art approaches, with a median improvement of 250%. It achieves Precision of 0.97 and Recall of 0.86, outperforming baseline approaches by 322% and 19% respectively. Top-10 Accuracy for line-level predictions is 0.65, 12%\u201325% more accurate than prior approaches, evaluated on a large-scale real-world dataset of 188,000+ C/C++ functions.\u201d LineVul's architecture \u2014 a CodeBERT encoder whose token-level output representations are passed to a token classification head with attention-based line scoring \u2014 is the direct architectural precedent for the line-level head proposed here. The key adaptation for this work is the domain shift from C/C++ vulnerability prediction to TypeScript/Next.js code review: rather than predicting whether a line contains a security vulnerability, the head predicts whether a line represents a code review issue of any category. The training signal for this head is derived from the line numbers attached to GitHub inline review comments, which are available in the raw PR data at no additional annotation cost. LineVul's empirical finding that transformer-based line-level prediction is accurate across the Top-25 most dangerous CWE categories (75%\u2013100% true positive rate) provides strong prior evidence that the underlying approach generalises beyond the specific training distribution \u2014 a property that will be tested in this work across Next.js-specific issue categories. 5. Multi-Task Learning for Shared Encoder Architectures The proposed model trains a single shared CodeBERT/GraphCodeBERT encoder simultaneously across four tasks: multi-label issue category classification, quality score regression, severity classification, and line-level localisation. This multi-task learning (MTL) design is grounded in a substantial body of theoretical and empirical work in both general NLP and code-specific contexts. 5.1 Foundations: MT-DNN and the regularisation effect of MTL The canonical reference for shared-encoder MTL in NLP is MT-DNN (Liu et al., ACL 2019, arXiv:1901.11504), a Microsoft Research contribution that applies multi-task learning across all nine tasks of the GLUE benchmark using a shared BERT encoder with task-specific output layers. \u201cThe lower layers are shared across all tasks while the top layers are task-specific. The input is first represented as a sequence of embedding vectors in l1. Then the Transformer encoder captures the contextual information for each word and generates shared contextual embedding vectors in l2. Finally, for each task, additional task-specific layers generate task-specific representations, followed by operations necessary for classification, similarity scoring, or relevance ranking.\u201d MT-DNN produces state-of-the-art results on",
+    "source": "literature_review_academic.pdf",
+    "doc_type": "pdf",
+    "page": 8,
+    "heading": "",
+    "category": "general",
+    "project_id": 2
+  },
+  {
+    "text": "of embedding vectors in l1. Then the Transformer encoder captures the contextual information for each word and generates shared contextual embedding vectors in l2. Finally, for each task, additional task-specific layers generate task-specific representations, followed by operations necessary for classification, similarity scoring, or relevance ranking.\u201d MT-DNN produces state-of-the-art results on 8 of the 9 GLUE tasks, and subsequently achieves new state-of-the-art results on SNLI (91.6%, a 1.5-point",
+    "source": "literature_review_academic.pdf",
+    "doc_type": "pdf",
+    "page": 8,
+    "heading": "",
+    "category": "general",
+    "project_id": 2
+  },
+  {
+    "text": "Discriminative Code Analysis for Automated Review Literature Review 9 absolute improvement) and SciTail (95.0%, a 6.7-point absolute improvement). Crucially, the performance gains are largest on tasks with smaller datasets \u2014 directly relevant for this project, where training data for rare issue categories (e.g., security) will be scarcer than for common ones (e.g., naming). The theoretical basis for this behaviour is the regularisation effect of multi-task learning: because the shared encoder must simultaneously represent useful features for multiple tasks, it is prevented from overfitting to idiosyncrasies of any single task's training distribution. As Caruana (1997) originally characterised it, multi-task learning uses the domain information contained in related tasks' training signals as an inductive bias, improving generalisation by learning tasks in parallel while sharing representation. For the present work, issue category, severity, and quality score are strongly correlated signals: a security issue is almost always critical, while a naming issue is almost invariably informational. Learning these joint distributions produces shared representations that are more discriminative for each individual task than single-task fine-tuning would achieve. 5.2 Negative transfer and task weighting Multi-task learning does not unconditionally improve performance. When the gradients of different tasks conflict \u2014 pointing in opposing directions or differing significantly in magnitude \u2014 joint training can hinder individual task performance, a phenomenon known as negative transfer (Wikipedia, Multi-task learning; Chen et al., Semantic Scholar 2021). For the proposed architecture, the risk of negative transfer is low because the four tasks are genuinely correlated: all operate on the same input (code diff + context), and their outputs (category, severity, quality, line location) are jointly determined by the same underlying properties of the code change. Nonetheless, the training objective must weight task losses appropriately: The combined training loss is defined as L = w1*L_cat + w2*L_quality + w3*L_severity + w4*L_lines, where w1, w2, w3, w4 are task weights and L_cat, L_quality, L_severity, and L_lines are the per-task losses. Initial experiments will use equal weights (all w = 1.0), followed by grid search to identify the optimal balance. Uncertainty weighting (Kendall et al., CVPR 2018), which adaptively weights task losses by learned homoscedastic uncertainty, will be explored as an alternative to manual tuning. 5.3 MTL applied to code understanding tasks The application of multi-task learning specifically to code intelligence is supported by a growing body of empirical work. Research combining dual-channel architectures with shared semantic encoders for defect detection shows that joint training",
+    "source": "literature_review_academic.pdf",
+    "doc_type": "pdf",
+    "page": 9,
+    "heading": "",
+    "category": "general",
+    "project_id": 2
+  },
+  {
+    "text": "uncertainty, will be explored as an alternative to manual tuning. 5.3 MTL applied to code understanding tasks The application of multi-task learning specifically to code intelligence is supported by a growing body of empirical work. Research combining dual-channel architectures with shared semantic encoders for defect detection shows that joint training on related sub-tasks produces representations that generalise better than single-task fine-tuning. Multi-task learning in biomedical NLP (Springer 2023) demonstrates that MT-DNN-style architectures with task-specific heads achieve superior results compared to single-task models even when the per-task dataset is",
+    "source": "literature_review_academic.pdf",
+    "doc_type": "pdf",
+    "page": 9,
+    "heading": "",
+    "category": "general",
+    "project_id": 2
+  },
+  {
+    "text": "Discriminative Code Analysis for Automated Review\nLiterature Review\n10\nsmall, which directly supports the proposed approach for low-frequency issue\ncategories.\n6. Input Representation and Contextual Enrichment\nThe proposed input strategy concatenates the code diff with surrounding file\ncontext using the BERT-standard segment structure: [CLS] <diff> [SEP] <context>\n[SEP]. This section reviews the evidence for this design choice and its specific\nnecessity in the Next.js domain.\n6.1 Empirical evidence for context-enriched representations\nA study presented at MSR 2024 found that encoding structural context and version\nhistory alongside source code improves code classification model performance\nacross five pre-trained architectures \u2014 including CodeBERT and GraphCodeBERT \u2014\nwith contextual signals providing consistent gains beyond what static code\nsnapshots alone can achieve. While that work focused primarily on file-level\nstructural context and commit history, the principle generalises: models that\nobserve more of the execution environment in which code operates make better\nclassification decisions.\nThe technical basis for this approach is the BERT sentence-pair input format, in\nwhich the [CLS] token aggregates information from both segments through\nbidirectional self-attention. This enables the encoder to learn joint representations\nof the diff and its surrounding context simultaneously, rather than processing them\nindependently and fusing them post-hoc. The 512-token input limit of\nCodeBERT/GraphCodeBERT constrains the amount of context that can be\nincorporated; the proposed approach uses 30 lines around changed lines, which\nempirically fits within the token budget for the majority of TypeScript function\nbodies.\n6.2 Framework-specific context: why it is non-optional\nFor the Next.js domain specifically, file context is not merely beneficial \u2014 it is\nnecessary for correct classification of a substantial fraction of issues. Three concrete\nexamples illustrate this:\nIssue category\nInformation missing from diff\nalone\nAvailable in file context\nnextjs-pattern\nWhether a component is a Server or\nClient Component\n'use client' directive at file top\nsecurity\nWhether a Server Action validates\nits caller\n'use server' annotation and auth\nchecks\nperformance\nWhether fetch() is inside a cached\nroute segment\nexport const revalidate in layout.ts",
+    "source": "literature_review_academic.pdf",
+    "doc_type": "pdf",
+    "page": 10,
+    "heading": "",
+    "category": "general",
+    "project_id": 2
+  },
+  {
+    "text": "Discriminative Code Analysis for Automated Review\nLiterature Review\n11\nTable 2. Issue categories that require file context for correct classification. Without\nsurrounding context, all three diffs are ambiguous or appear benign.\nAdditionally, the file path itself \u2014 for example, app/dashboard/page.tsx versus\ncomponents/ui/button.tsx \u2014 is a lightweight but highly informative contextual signal\nthat disambiguates App Router page components from general UI components. As\ndescribed in the official Next.js production checklist documentation, correct\nplacement of 'use client' boundaries, appropriate use of Dynamic APIs, and\ncorrect Server Action implementation are all context-dependent. The file path is\nprepended as a prefix token before the diff, costing fewer than 10 tokens and\nproviding material disambiguation.\n7. Research Gap and Contribution\n7.1 Synthesis of the identified gap\nThe literature reviewed above establishes five independently supported propositions\nthat together define the research gap this work addresses:\nP\n1\nCode review is expensive and reviewer attention is the binding constraint on throughput\n(Bacchelli & Bird, 2013; Sadowski et al., 2018).\nP\n2\nDiscriminative classification models trained on review data can accurately predict code\nquality issues (CodeReviewer quality estimation sub-task; DeepReview, 2019).\nP\n3\nCompact pre-trained code encoders (CodeBERT, GraphCodeBERT) are highly effective for\ncode classification tasks and deploy feasibly on commodity hardware (Feng et al., 2020;\nGuo et al., 2021; LineVul, 2022).\nP\n4\nMulti-task learning across correlated tasks improves individual task performance,\nparticularly in limited-data regimes (MT-DNN, Liu et al., 2019).\nP\n5\nNext.js App Router introduces semantically distinct patterns that are absent from all\nexisting ACR training corpora and require framework-specialised reasoning (Next.js\ndocumentation, 2023).\nFrom P1\u2013P5, the gap follows directly: an architecture satisfying P2\u2013P4 and trained on\ndata capturing P5 does not yet exist. Existing systems satisfy at most three of the\nfive propositions simultaneously: CodeReviewer satisfies P1 and P2 but not P3, P4,\nor P5; commercial systems (Qodo, Coderabbit, GitHub Copilot Code Review) satisfy\nP1 and P2 but are generative, cloud-dependent, and framework-generic. No existing\nsystem satisfies all five simultaneously.\n7.2 Contributions of this work\nAgainst this landscape, this research makes the following four contributions:",
+    "source": "literature_review_academic.pdf",
+    "doc_type": "pdf",
+    "page": 11,
+    "heading": "",
+    "category": "general",
+    "project_id": 2
+  },
+  {
+    "text": "Discriminative Code Analysis for Automated Review\nLiterature Review\n12\nC\n1\nA discriminative\nmulti-task architecture\nA CodeBERT/GraphCodeBERT encoder fine-tuned with four\ntask-specific heads (multi-label category, quality regression,\nseverity classification, line-level localisation) that runs entirely\nlocally on commodity hardware without GPU acceleration,\nachieving sub-200ms inference per diff.\nC\n2\nA Next.js-specialised\nannotated dataset\nA curated dataset of pull request diffs from high-activity\nNext.js repositories (vercel/next.js, calcom/cal.com,\nshadcn-ui/ui, and others) with extracted multi-label\nannotations covering eight issue categories derived from\ninline reviewer comments.\nC\n3\nA systematic encoder\ncomparison\nAn ablation study comparing CodeBERT and GraphCodeBERT\nas encoder backbones across all four task heads and two input\nstrategies (diff-only vs. diff + file context), establishing which\narchitectural choices drive performance on Next.js-specific\nissue categories.\nC\n4\nLine-level output\nlocalisation\nA token classification head that predicts which specific lines\nwithin a diff are problematic, providing developer-actionable\noutput at a granularity that current compact code review tools\ndo not support \u2014 trained using line numbers from GitHub\ninline comments as supervision.\n8. Conclusion\nThis literature review has surveyed four areas of directly relevant prior work \u2014\nautomated code review systems, pre-trained code language models, code\nclassification and defect detection, and multi-task learning \u2014 and established the\ntheoretical and empirical foundations for the proposed research. The review\ndemonstrates that all component techniques are individually well-validated:\ndiscriminative code classification with CodeBERT achieves F1 scores above 0.91 on\nestablished benchmarks; multi-task learning with shared encoders consistently\nimproves over single-task baselines, especially in limited-data regimes; line-level\nprediction is tractable with transformer-based token classification heads; and\ncontext-enriched input representations improve code classification accuracy across\na range of pre-trained architectures.\nThe gap identified by this review is not merely an absence of prior work but a\nprincipled confluence: the existing literature has not combined these techniques in a\nlocally deployable, framework-specialised discriminative architecture. Next.js in\nparticular represents an underexplored but high-value target domain whose specific\npatterns \u2014 Server Components, App Router semantics, caching directives, and\nServer Actions \u2014 are semantically distinct from prior-art training corpora and\nrequire dedicated treatment. The four contributions proposed in this research\ndirectly address this gap, and the technical feasibility of each contribution is\nwell-supported by the reviewed literature.",
+    "source": "literature_review_academic.pdf",
+    "doc_type": "pdf",
+    "page": 12,
+    "heading": "",
+    "category": "general",
+    "project_id": 2
+  },
+  {
+    "text": "Discriminative Code Analysis for Automated Review Literature Review 13 References Bacchelli, A., & Bird, C. (2013). Expectations, outcomes, and challenges of modern code review. In Proceedings of the 35th International Conference on Software Engineering (ICSE 2013) (pp. 712\u2013721). IEEE. Bavota, G., & Russo, B. (2015). Four eyes are better than two: On the impact of code reviews on software quality. In Proceedings of the 31st IEEE International Conference on Software Maintenance and Evolution (ICSME 2015) (pp. 81\u201390). IEEE. Cihan, O., et al. (2024). Automated code review in practice. arXiv preprint arXiv:2412.18531. Feng, Z., Guo, D., Tang, D., Duan, N., Feng, X., Gong, M., ... & Zhou, M. (2020). CodeBERT: A pre-trained model for programming and natural languages. In Findings of the Association for Computational Linguistics: EMNLP 2020 (pp. 1536\u20131547). arXiv:2002.08155. Fu, M., & Tantithamthavorn, C. (2022). LineVul: A transformer-based line-level vulnerability prediction. In Proceedings of the 19th International Conference on Mining Software Repositories (MSR 2022) (pp. 608\u2013620). IEEE. DOI:10.1145/3524842.3528452. Guo, D., Ren, S., Lu, S., Feng, Z., Tang, D., Liu, S., ... & Ma, W. Y. (2021). GraphCodeBERT: Pre-training code representations with data flow. In Proceedings of the 9th International Conference on Learning Representations (ICLR 2021). arXiv:2009.08366. Hu, E. J., Shen, Y., Wallis, P., Allen-Zhu, Z., Li, Y., Wang, S., ... & Chen, W. (2021). LoRA: Low-rank adaptation of large language models. arXiv preprint arXiv:2106.09685. Kendall, A., Gal, Y., & Cipolla, R. (2018). Multi-task learning using uncertainty to weigh losses for scene geometry and semantics. In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR 2018) (pp. 7482\u20137491). Li, Z., et al. (2022). CodeReviewer: Pre-training for automating code review activities. In Proceedings of the 30th ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering (ESEC/FSE 2022). ACM. DOI:10.1145/3540250.3549081. Liu, X., He, P., Chen, W., & Gao, J. (2019). Multi-task deep neural networks for natural language understanding. In Proceedings of the 57th Annual Meeting of the Association for Computational Linguistics (ACL 2019) (pp. 4487\u20134496). arXiv:1901.11504. Lu, S., et al. (2021). CodeXGLUE: A machine learning benchmark dataset for code understanding and generation. In Thirty-fifth Conference on Neural Information Processing Systems Datasets and Benchmarks Track. McIntosh, S., Kamei, Y., Adams, B., & Hassan, A. E. (2014). The impact of code review coverage and code review participation on software quality. In Proceedings of the 11th Working Conference on Mining Software Repositories (MSR 2014). ACM. Morales, R.,",
+    "source": "literature_review_academic.pdf",
+    "doc_type": "pdf",
+    "page": 13,
+    "heading": "",
+    "category": "general",
+    "project_id": 2
+  },
+  {
+    "text": "Conference on Neural Information Processing Systems Datasets and Benchmarks Track. McIntosh, S., Kamei, Y., Adams, B., & Hassan, A. E. (2014). The impact of code review coverage and code review participation on software quality. In Proceedings of the 11th Working Conference on Mining Software Repositories (MSR 2014). ACM. Morales, R., Adams, B., Kemerer, C. F., & Sherriff, M. (2015). On the use of developer interaction data to assess code quality. In Proceedings of the 7th International Workshop on Emerging Trends in Software Metrics (WETSoM 2015). Next.js Documentation. (2023). How to think about security in Next.js. Vercel. Retrieved from https://nextjs.org/blog/security-nextjs-server-components-actions Sadowski, C., S\u00f6derberg, E., Church, L., Sipko, M., & Bacchelli, A. (2018). Modern code review: A case study at Google. In Proceedings of the 40th International Conference on Software Engineering: Software Engineering in Practice (ICSE SEIP 2018). ACM.",
+    "source": "literature_review_academic.pdf",
+    "doc_type": "pdf",
+    "page": 13,
+    "heading": "",
+    "category": "general",
+    "project_id": 2
+  },
+  {
+    "text": "Discriminative Code Analysis for Automated Review\nLiterature Review\n14\nShi, E., et al. (2023). Towards efficient fine-tuning of pre-trained code models: An\nexperimental study and beyond. arXiv preprint arXiv:2304.05216.\nTufano, R., Masiero, S., Mastropaolo, A., Pascarella, L., Poshyvanyk, D., & Bavota, G. (2022).\nUsing pre-trained models to boost code review automation. In Proceedings of the 44th\nInternational Conference on Software Engineering (ICSE 2022). ACM.\nWang, L., et al. (2024). SCL-CVD: Supervised contrastive learning for code vulnerability\ndetection via GraphCodeBERT. Computers & Security, 145, 103994.\nDOI:10.1016/j.cose.2024.103994.\nPrepared as part of a research proposal for a compact discriminative code review model specialised for\nthe Next.js App Router. All citations verified against public academic databases. March 2026.",
+    "source": "literature_review_academic.pdf",
+    "doc_type": "pdf",
+    "page": 14,
+    "heading": "",
+    "category": "general",
+    "project_id": 2
+  }
+]
