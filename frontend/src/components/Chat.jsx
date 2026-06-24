@@ -31,7 +31,7 @@ const Chat = ({ selectedProjectId, currentChatId, setCurrentChatId, chats, onCha
 
   const loadChatHistory = async (id) => {
     try {
-      const response = await fetch(`http://localhost:8000/chats/${id}`);
+      const response = await fetch(`http://localhost:8002/chats/${id}`);
       if (response.ok) {
         const data = await response.json();
         setMessages((data && Array.isArray(data.messages)) ? data.messages : [
@@ -56,7 +56,7 @@ const Chat = ({ selectedProjectId, currentChatId, setCurrentChatId, chats, onCha
       // If no currentChatId, create one first
       let activeChatId = currentChatId;
       if (!activeChatId) {
-        const createRes = await fetch('http://localhost:8000/chats', {
+        const createRes = await fetch('http://localhost:8002/chats', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ project_id: selectedProjectId ? parseInt(selectedProjectId) : null })
@@ -68,7 +68,7 @@ const Chat = ({ selectedProjectId, currentChatId, setCurrentChatId, chats, onCha
       }
 
       // Use the actual streaming endpoint
-      const response = await fetch('http://localhost:8000/ask/stream', {
+      const response = await fetch('http://localhost:8002/ask/stream', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 
@@ -169,7 +169,7 @@ const Chat = ({ selectedProjectId, currentChatId, setCurrentChatId, chats, onCha
         isCollapsed={!isSidebarVisible}
         onNewChat={() => {
           const handleInternalNewChat = async () => {
-            const response = await fetch('http://localhost:8000/chats', {
+            const response = await fetch('http://localhost:8002/chats', {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify({ project_id: selectedProjectId ? parseInt(selectedProjectId) : null })

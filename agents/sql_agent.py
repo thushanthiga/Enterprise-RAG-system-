@@ -30,7 +30,7 @@ Schema:
 {schema}
 
 Rules:
-1. Write SELECT only. LIMIT 100.
+1. Write SELECT, SHOW, or DESCRIBE only. Limit results if applicable.
 2. CRITICAL: Use EXACT table and column names exactly as they are defined in the schema above.
 3. DO NOT guess, predict, or invent table names or columns that are not present in the schema. Check spelling.
 4. If using table aliases (e.g., `t1`), ONLY reference columns using defined aliases. 
@@ -122,31 +122,56 @@ class SQLAgent(BaseAgent):
 
         schema_text = self._trim_schema(schema_text)
 
-        # 2. Generate SQL
         system_prompt = SQL_SYSTEM.format(source=source, schema=schema_text)
+        
+        # Initial generation
         raw_sql = await self.call_llm(system_prompt, question)
         sql = self._extract_sql(raw_sql)
 
-        # 3. Validate
-        error = self._validate_sql(sql, source)
-        if error:
-            return {"error": error, "sql": sql, "rows": []}
+        max_retries = 3
+        last_error = None
+        
+        for attempt in range(max_retries):
+            print(f"--- SQLAgent Generated SQL (Attempt {attempt+1}) ---\n{sql}\n-----------------------------------------")
+            
+            # 3. Validate
+            error = self._validate_sql(sql, source)
+            
+            if error:
+                last_error = error
+                print(f"SQL Validation Error on attempt {attempt+1}: {last_error}")
+            else:
+                # 4. Execute
+                try:
+                    rows = await self._execute(sql, source, override_url)
+                    return {"sql": sql, "rows": rows[:50], "total_rows": len(rows)}
+                except Exception as exc:
+                    last_error = str(exc)
+                    print(f"SQL Execution Error on attempt {attempt+1}: {last_error}")
+            
+            if attempt == max_retries - 1:
+                break
+                
+            # Feedback loop to LLM to fix validation or execution errors
+            feedback_prompt = (
+                f"The following SQL query failed:\n```sql\n{sql}\n```\n\n"
+                f"Error message:\n{last_error}\n\n"
+                "Please rewrite the query to fix the error. "
+                "If the error states that a table or column 'doesn't exist', YOU MUST NOT use it again. Choose a different table from the schema or approach. "
+                "Crucially, DO NOT hallucinate. You must use a SELECT, SHOW, or DESCRIBE statement. Return ONLY the valid SQL query."
+            )
+            raw_sql = await self.call_llm(system_prompt, feedback_prompt)
+            sql = self._extract_sql(raw_sql)
 
-        # 4. Execute
-        try:
-            rows = await self._execute(sql, source, override_url)
-        except Exception as exc:
-            return {"error": str(exc), "sql": sql, "rows": []}
-
-        return {"sql": sql, "rows": rows[:50], "total_rows": len(rows)}
+        return {"error": last_error, "sql": sql, "rows": []}
 
     # ── SQL extraction ───────────────────────────────────────────────
     @staticmethod
     def _extract_sql(raw: str) -> str:
         """Strip markdown fences and explanation text from LLM output."""
         clean = re.sub(r"```sql|```", "", raw).strip()
-        # If the response starts with SELECT, take it
-        match = re.search(r"(SELECT\s.+)", clean, re.IGNORECASE | re.DOTALL)
+        # If the response starts with SELECT, SHOW or DESCRIBE, take it
+        match = re.search(r"((?:SELECT|SHOW|DESCRIBE|DESC)\s.+)", clean, re.IGNORECASE | re.DOTALL)
         if match:
             sql = match.group(1).strip()
             # Remove trailing explanation after semicolon
@@ -167,8 +192,14 @@ class SQLAgent(BaseAgent):
             return "Could not parse generated SQL"
 
         stmt = parsed[0]
-        if stmt.get_type() != "SELECT":
-            return f"Only SELECT allowed, got: {stmt.get_type()}"
+        stmt_type = stmt.get_type()
+        
+        # sqlparse labels SHOW and DESCRIBE as UNKNOWN
+        if stmt_type == "UNKNOWN":
+            if not re.match(r"^\s*(SHOW|DESC|DESCRIBE)\b", sql, re.IGNORECASE):
+                return f"Only SELECT or SHOW allowed, got unsupported statement."
+        elif stmt_type != "SELECT":
+            return f"Only SELECT or SHOW allowed, got: {stmt_type}"
 
         # Keyword blocklist
         sql_lower = sql.lower()

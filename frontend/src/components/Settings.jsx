@@ -67,6 +67,37 @@ const ModelSelect = ({ provider, value, onChange, customPlaceholder }) => {
   );
 };
 
+const ProviderCard = ({ id, name, icon: Icon, color, activeProvider, onSelect, children }) => (
+  <section className={`project-card ${activeProvider === id ? 'active-provider' : ''}`} style={{
+    border: activeProvider === id ? `2px solid ${color}` : '1px solid var(--border-color)',
+    transition: 'all 0.3s ease',
+    height: '100%'
+  }}>
+    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1rem' }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', color: color }}>
+        <Icon size={20} />
+        <h3 style={{ fontSize: '1.1rem' }}>{name}</h3>
+      </div>
+      <button 
+        onClick={() => onSelect(id)}
+        style={{
+          padding: '0.4rem 1rem',
+          borderRadius: '20px',
+          background: activeProvider === id ? color : 'transparent',
+          color: activeProvider === id ? 'black' : 'var(--text-muted)',
+          border: `1px solid ${activeProvider === id ? color : 'var(--border-color)'}`,
+          fontSize: '0.75rem',
+          fontWeight: 700,
+          cursor: 'pointer'
+        }}
+      >
+        {activeProvider === id ? 'ACTIVE' : 'SELECT'}
+      </button>
+    </div>
+    {children}
+  </section>
+);
+
 const Settings = () => {
   const [settings, setSettings] = useState({
     active_llm_provider: 'ollama',
@@ -100,7 +131,7 @@ const Settings = () => {
   const fetchSettings = async () => {
     setIsLoading(true);
     try {
-      const response = await fetch('http://localhost:8000/settings');
+      const response = await fetch('http://localhost:8002/settings');
       if (response.ok) {
         const data = await response.json();
         setSettings(data);
@@ -116,7 +147,7 @@ const Settings = () => {
     if (!settings.ollama_url) return;
     setIsFetchingOllama(true);
     try {
-      const response = await fetch(`http://localhost:8000/ollama/tags?url=${encodeURIComponent(settings.ollama_url)}`);
+      const response = await fetch(`http://localhost:8002/ollama/tags?url=${encodeURIComponent(settings.ollama_url)}`);
       if (response.ok) {
         const data = await response.json();
         setOllamaModels(data.map(m => m.name));
@@ -137,7 +168,7 @@ const Settings = () => {
     setIsSaving(true);
     setMessage(null);
     try {
-      const response = await fetch('http://localhost:8000/settings', {
+      const response = await fetch('http://localhost:8002/settings', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(settings)
@@ -159,7 +190,7 @@ const Settings = () => {
     setMessage(null);
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch('http://localhost:8000/reindex', {
+      const response = await fetch('http://localhost:8002/reindex', {
         method: 'POST',
         headers: { 
           'Authorization': `Bearer ${token}`
@@ -178,36 +209,6 @@ const Settings = () => {
     }
   };
 
-  const ProviderCard = ({ id, name, icon: Icon, color, children }) => (
-    <section className={`project-card ${settings.active_llm_provider === id ? 'active-provider' : ''}`} style={{
-      border: settings.active_llm_provider === id ? `2px solid ${color}` : '1px solid var(--border-color)',
-      transition: 'all 0.3s ease',
-      height: '100%'
-    }}>
-      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1rem' }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', color: color }}>
-          <Icon size={20} />
-          <h3 style={{ fontSize: '1.1rem' }}>{name}</h3>
-        </div>
-        <button 
-          onClick={() => setSettings({...settings, active_llm_provider: id})}
-          style={{
-            padding: '0.4rem 1rem',
-            borderRadius: '20px',
-            background: settings.active_llm_provider === id ? color : 'transparent',
-            color: settings.active_llm_provider === id ? 'black' : 'var(--text-muted)',
-            border: `1px solid ${settings.active_llm_provider === id ? color : 'var(--border-color)'}`,
-            fontSize: '0.75rem',
-            fontWeight: 700,
-            cursor: 'pointer'
-          }}
-        >
-          {settings.active_llm_provider === id ? 'ACTIVE' : 'SELECT'}
-        </button>
-      </div>
-      {children}
-    </section>
-  );
 
   if (isLoading) {
     return (
@@ -246,7 +247,7 @@ const Settings = () => {
       </div>
 
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1rem', marginBottom: '1.5rem' }}>
-        <ProviderCard id="ollama" name="Local (Ollama)" icon={Cpu} color="var(--accent-color)">
+        <ProviderCard id="ollama" name="Local (Ollama)" icon={Cpu} color="var(--accent-color)" activeProvider={settings.active_llm_provider} onSelect={(id) => setSettings({...settings, active_llm_provider: id})}>
           <div className="form-group" style={{ marginBottom: '0.8rem' }}>
             <label style={{ fontSize: '0.8rem', marginBottom: '0.3rem' }}>Ollama Server URL</label>
             <input type="text" value={settings.ollama_url} onChange={(e) => setSettings({...settings, ollama_url: e.target.value})} placeholder="http://localhost:11434" style={{ padding: '0.5rem', fontSize: '0.85rem' }} />
@@ -290,7 +291,7 @@ const Settings = () => {
           </div>
         </ProviderCard>
 
-        <ProviderCard id="openai" name="OpenAI" icon={Globe} color="#10a37f">
+        <ProviderCard id="openai" name="OpenAI" icon={Globe} color="#10a37f" activeProvider={settings.active_llm_provider} onSelect={(id) => setSettings({...settings, active_llm_provider: id})}>
           <div className="form-group" style={{ marginBottom: '0.8rem' }}>
             <label style={{ fontSize: '0.8rem', marginBottom: '0.3rem' }}>API Key</label>
             <input type="password" value={settings.openai_api_key} onChange={(e) => setSettings({...settings, openai_api_key: e.target.value})} placeholder="sk-..." style={{ padding: '0.5rem', fontSize: '0.85rem' }} />
@@ -302,7 +303,7 @@ const Settings = () => {
           />
         </ProviderCard>
 
-        <ProviderCard id="anthropic" name="Anthropic" icon={Zap} color="#da7756">
+        <ProviderCard id="anthropic" name="Anthropic" icon={Zap} color="#da7756" activeProvider={settings.active_llm_provider} onSelect={(id) => setSettings({...settings, active_llm_provider: id})}>
           <div className="form-group" style={{ marginBottom: '0.8rem' }}>
             <label style={{ fontSize: '0.8rem', marginBottom: '0.3rem' }}>API Key</label>
             <input type="password" value={settings.anthropic_api_key} onChange={(e) => setSettings({...settings, anthropic_api_key: e.target.value})} placeholder="x-ant-..." style={{ padding: '0.5rem', fontSize: '0.85rem' }} />
@@ -314,7 +315,7 @@ const Settings = () => {
           />
         </ProviderCard>
 
-        <ProviderCard id="gemini" name="Gemini" icon={Layers} color="#4285f4">
+        <ProviderCard id="gemini" name="Gemini" icon={Layers} color="#4285f4" activeProvider={settings.active_llm_provider} onSelect={(id) => setSettings({...settings, active_llm_provider: id})}>
           <div className="form-group" style={{ marginBottom: '0.8rem' }}>
             <label style={{ fontSize: '0.8rem', marginBottom: '0.3rem' }}>API Key</label>
             <input type="password" value={settings.gemini_api_key} onChange={(e) => setSettings({...settings, gemini_api_key: e.target.value})} placeholder="AIza..." style={{ padding: '0.5rem', fontSize: '0.85rem' }} />
@@ -326,7 +327,7 @@ const Settings = () => {
           />
         </ProviderCard>
 
-        <ProviderCard id="deepseek" name="DeepSeek" icon={Shield} color="#3d5afe">
+        <ProviderCard id="deepseek" name="DeepSeek" icon={Shield} color="#3d5afe" activeProvider={settings.active_llm_provider} onSelect={(id) => setSettings({...settings, active_llm_provider: id})}>
           <div className="form-group" style={{ marginBottom: '0.8rem' }}>
             <label style={{ fontSize: '0.8rem', marginBottom: '0.3rem' }}>API Key</label>
             <input type="password" value={settings.deepseek_api_key} onChange={(e) => setSettings({...settings, deepseek_api_key: e.target.value})} placeholder="ds-..." style={{ padding: '0.5rem', fontSize: '0.85rem' }} />
@@ -338,7 +339,7 @@ const Settings = () => {
           />
         </ProviderCard>
 
-        <ProviderCard id="grok" name="xAI (Grok)" icon={Zap} color="#888888">
+        <ProviderCard id="grok" name="xAI (Grok)" icon={Zap} color="#888888" activeProvider={settings.active_llm_provider} onSelect={(id) => setSettings({...settings, active_llm_provider: id})}>
           <div className="form-group" style={{ marginBottom: '0.8rem' }}>
             <label style={{ fontSize: '0.8rem', marginBottom: '0.3rem' }}>API Key</label>
             <input type="password" value={settings.grok_api_key} onChange={(e) => setSettings({...settings, grok_api_key: e.target.value})} placeholder="xai-..." style={{ padding: '0.5rem', fontSize: '0.85rem' }} />

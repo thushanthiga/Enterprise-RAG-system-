@@ -113,7 +113,7 @@ function App() {
 
   const fetchProjects = async () => {
     try {
-      const res = await fetch('http://localhost:8000/projects');
+      const res = await fetch('http://localhost:8002/projects');
       const data = await res.json();
       setProjects(data);
     } catch (err) {
@@ -123,7 +123,7 @@ function App() {
 
   const fetchChats = async () => {
     try {
-      const res = await fetch('http://localhost:8000/chats');
+      const res = await fetch('http://localhost:8002/chats');
       const data = await res.json();
       setChats(data);
       if (data.length > 0 && !currentChatId) {
@@ -137,7 +137,7 @@ function App() {
 
   const handleNewChat = async () => {
     try {
-      const response = await fetch('http://localhost:8000/chats', {
+      const response = await fetch('http://localhost:8002/chats', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ project_id: selectedProjectId ? parseInt(selectedProjectId) : null })
@@ -153,7 +153,7 @@ function App() {
   const handleDeleteChat = async (id) => {
     if (!window.confirm('Delete this chat history?')) return;
     try {
-      await fetch(`http://localhost:8000/chats/${id}`, { method: 'DELETE' });
+      await fetch(`http://localhost:8002/chats/${id}`, { method: 'DELETE' });
       setChats(chats.filter(c => c.id !== id));
       if (currentChatId === id) setCurrentChatId(null);
     } catch (err) {

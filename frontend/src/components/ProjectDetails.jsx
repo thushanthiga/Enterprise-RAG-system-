@@ -38,7 +38,7 @@ const ProjectDetails = ({ project, onBack, chats, currentChatId, setCurrentChatI
   const fetchProjectDetails = async () => {
     try {
       const authToken = localStorage.getItem('token');
-      const response = await fetch(`http://localhost:8000/projects/${project.id}`, {
+      const response = await fetch(`http://localhost:8002/projects/${project.id}`, {
         headers: {
           ...(authToken ? { 'Authorization': `Bearer ${authToken}` } : {})
         }
@@ -46,18 +46,25 @@ const ProjectDetails = ({ project, onBack, chats, currentChatId, setCurrentChatI
       if (response.ok) {
         const data = await response.json();
         setDocs(data.documents || []);
-        setDatabases(data.databases || []);
+        const dbs = data.db_config;
+        if (Array.isArray(dbs)) {
+          setDatabases(dbs);
+        } else if (dbs && Object.keys(dbs).length > 0) {
+          setDatabases([{ ...dbs, id: dbs.id || 1 }]);
+        } else {
+          setDatabases([]);
+        }
         if (data.db_config && !showDbForm) setDbConfig(data.db_config);
       }
       
       // Fetch Markdown Contexts
-      const pgRes = await fetch(`http://localhost:8000/projects/${project.id}/markdown/project_guidelines.md`, {
+      const pgRes = await fetch(`http://localhost:8002/projects/${project.id}/markdown/project_guidelines.md`, {
         headers: { ...(authToken ? { 'Authorization': `Bearer ${authToken}` } : {}) }
       });
       if(pgRes.ok) {
         setProjectGuidelines((await pgRes.json()).content);
       }
-      const dbRes = await fetch(`http://localhost:8000/projects/${project.id}/markdown/db_schema.md`, {
+      const dbRes = await fetch(`http://localhost:8002/projects/${project.id}/markdown/db_schema.md`, {
         headers: { ...(authToken ? { 'Authorization': `Bearer ${authToken}` } : {}) }
       });
       if(dbRes.ok) {
@@ -80,7 +87,7 @@ const ProjectDetails = ({ project, onBack, chats, currentChatId, setCurrentChatI
 
     try {
       const authToken = localStorage.getItem('token');
-      const response = await fetch(`http://localhost:8000/projects/${project.id}/documents/upload?category=uploaded`, {
+      const response = await fetch(`http://localhost:8002/projects/${project.id}/documents/upload?category=uploaded`, {
         method: 'POST',
         headers: {
           ...(authToken ? { 'Authorization': `Bearer ${authToken}` } : {})
@@ -111,7 +118,7 @@ const ProjectDetails = ({ project, onBack, chats, currentChatId, setCurrentChatI
 
     try {
       const authToken = localStorage.getItem('token');
-      const response = await fetch(`http://localhost:8000/projects/${project.id}/documents/upload?category=media`, {
+      const response = await fetch(`http://localhost:8002/projects/${project.id}/documents/upload?category=media`, {
         method: 'POST',
         headers: {
           ...(authToken ? { 'Authorization': `Bearer ${authToken}` } : {})
@@ -134,7 +141,7 @@ const ProjectDetails = ({ project, onBack, chats, currentChatId, setCurrentChatI
   };
 
   const handleViewFile = (docId) => {
-    window.open(`http://localhost:8000/projects/${project.id}/files/${docId}`, '_blank');
+    window.open(`http://localhost:8002/projects/${project.id}/files/${docId}`, '_blank');
   };
 
   const sortItems = (items) => {
@@ -152,7 +159,7 @@ const ProjectDetails = ({ project, onBack, chats, currentChatId, setCurrentChatI
     if (!window.confirm('Are you sure you want to delete this document?')) return;
     try {
       const authToken = localStorage.getItem('token');
-      const response = await fetch(`http://localhost:8000/projects/${project.id}/documents/${docId}`, {
+      const response = await fetch(`http://localhost:8002/projects/${project.id}/documents/${docId}`, {
         method: 'DELETE',
         headers: {
           ...(authToken ? { 'Authorization': `Bearer ${authToken}` } : {})
@@ -171,7 +178,7 @@ const ProjectDetails = ({ project, onBack, chats, currentChatId, setCurrentChatI
     setTestResult(null);
     try {
       const authToken = localStorage.getItem('token');
-      const response = await fetch(`http://localhost:8000/projects/${project.id}/databases/test`, {
+      const response = await fetch(`http://localhost:8002/projects/${project.id}/databases/test`, {
         method: 'POST',
         headers: { 
           'Content-Type': 'application/json',
@@ -192,7 +199,7 @@ const ProjectDetails = ({ project, onBack, chats, currentChatId, setCurrentChatI
     setIsLoading(true);
     try {
       const authToken = localStorage.getItem('token');
-      const response = await fetch(`http://localhost:8000/projects/${project.id}/databases`, {
+      const response = await fetch(`http://localhost:8002/projects/${project.id}/databases`, {
         method: 'POST',
         headers: { 
           'Content-Type': 'application/json',
@@ -203,7 +210,7 @@ const ProjectDetails = ({ project, onBack, chats, currentChatId, setCurrentChatI
       if (response.ok) {
         const savedDb = await response.json();
         setDatabases(prev => {
-          const idx = prev.findIndex(d => d.id === savedDb.id);
+          const idx = prev.findIndex(d => (d.id === savedDb.id && savedDb.id) || d.name === savedDb.name);
           if (idx >= 0) {
             const newDbs = [...prev];
             newDbs[idx] = savedDb;
@@ -226,7 +233,7 @@ const ProjectDetails = ({ project, onBack, chats, currentChatId, setCurrentChatI
     if (!window.confirm('Delete this database configuration?')) return;
     try {
       const authToken = localStorage.getItem('token');
-      const response = await fetch(`http://localhost:8000/projects/${project.id}/databases/${dbId}`, {
+      const response = await fetch(`http://localhost:8002/projects/${project.id}/databases/${dbId}`, {
         method: 'DELETE',
         headers: {
           ...(authToken ? { 'Authorization': `Bearer ${authToken}` } : {})
@@ -253,7 +260,7 @@ const ProjectDetails = ({ project, onBack, chats, currentChatId, setCurrentChatI
     setIsSavingMarkdown(true);
     try {
       const authToken = localStorage.getItem('token');
-      const response = await fetch(`http://localhost:8000/projects/${project.id}/markdown/${filename}`, {
+      const response = await fetch(`http://localhost:8002/projects/${project.id}/markdown/${filename}`, {
         method: 'PUT',
         headers: { 
           'Content-Type': 'application/json',

@@ -236,6 +236,9 @@ async def ask(req: AskRequest, user: dict = Depends(get_current_user), db: Async
                 cfg = db_configs[0]
                 db_url = get_db_url(cfg)
             
+            # Extract schema from extra_data if available
+            db_schema_text = (project.extra_data or {}).get("db_schema")
+            
             result_docs = await db.execute(select(models.Document).where(models.Document.project_id == req.project_id))
             docs = result_docs.scalars().all()
             if docs:
@@ -316,6 +319,9 @@ async def ask_stream(req: AskRequest, user: dict = Depends(get_current_user), db
                 ctx_parts.append(f"Databases: {', '.join([d.get('name', 'DB') for d in db_configs])}")
                 cfg = db_configs[0]
                 db_url = get_db_url(cfg)
+
+            # Extract schema from extra_data if available
+            db_schema_text = (project.extra_data or {}).get("db_schema")
             
             result_docs = await db.execute(select(models.Document).where(models.Document.project_id == req.project_id))
             docs = result_docs.scalars().all()
@@ -410,14 +416,16 @@ async def ask_stream(req: AskRequest, user: dict = Depends(get_current_user), db
 
 @app.get("/projects")
 async def list_projects(user: dict = Depends(get_current_user), db: AsyncSession = Depends(get_db)):
-    # Fetch projects with documents eagerly loaded to count them
-    result = await db.execute(
-        select(models.Project).options(selectinload(models.Project.documents))
+    # Efficiently fetch projects and document count without loading all documents into RAM
+    stmt = (
+        select(models.Project, func.count(models.Document.id))
+        .outerjoin(models.Document, models.Project.id == models.Document.project_id)
+        .group_by(models.Project.id)
     )
-    projects = result.scalars().all()
+    result = await db.execute(stmt)
     
     enriched_projects = []
-    for p in projects:
+    for p, doc_count in result.all():
         # Determine DB summary
         db_summary = "None"
         if p.db_config:
@@ -431,7 +439,7 @@ async def list_projects(user: dict = Depends(get_current_user), db: AsyncSession
             "id": p.id,
             "name": p.name,
             "status": p.status,
-            "docs": len(p.documents),
+            "docs": doc_count,
             "db": db_summary,
             "created_at": p.created_at
         })
@@ -728,13 +736,15 @@ async def update_project_markdown(project_id: int, filename: str, update: Markdo
     if not project:
         raise HTTPException(status_code=404, detail="Project not found")
     
-    extra = project.extra_data or {}
+    extra = dict(project.extra_data or {})
     if filename == "project_guidelines.md":
         extra["guidelines"] = update.content
     elif filename == "db_schema.md":
         extra["db_schema"] = update.content
     
     project.extra_data = extra
+    from sqlalchemy.orm.attributes import flag_modified
+    flag_modified(project, "extra_data")
     await db.commit()
     return {"status": "success"}
 

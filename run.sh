@@ -36,11 +36,11 @@ else
 fi
 
 # ── 3. Start FastAPI ─────────────────────────────────────────────────
-echo "[3/4] Starting FastAPI on port 8000..."
+echo "[3/4] Starting FastAPI on port 8002..."
 cd /app
 python3 -m uvicorn app.main:app \
     --host 0.0.0.0 \
-    --port 8000 \
+    --port 8002 \
     --workers 1 &
 API_PID=$!
 echo "  ✓ FastAPI started (PID: $API_PID)"
@@ -48,7 +48,7 @@ echo "  ✓ FastAPI started (PID: $API_PID)"
 # Wait for API to be ready
 sleep 3
 for i in {1..30}; do
-    if curl -sf http://localhost:8000/health >/dev/null 2>&1; then
+    if curl -sf http://localhost:8002/health >/dev/null 2>&1; then
         echo "  ✓ API health check passed"
         break
     fi
@@ -68,10 +68,11 @@ echo "  ✓ Streamlit started (PID: $UI_PID)"
 echo ""
 echo "============================================="
 echo "  All services running!"
-echo "  API:       http://localhost:8000"
+echo "  API:       http://localhost:8002"
 echo "  UI:        http://localhost:8501"
 echo "  Ollama:    http://localhost:11434"
 echo "============================================="
+
 
 # Keep container alive — wait for any process to exit
 wait -n $OLLAMA_PID $API_PID $UI_PID

@@ -28,7 +28,7 @@ const Projects = ({ projects, setProjects, setSelectedProjectId, chats, currentC
   const fetchProjects = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch('http://localhost:8000/projects', {
+      const response = await fetch('http://localhost:8002/projects', {
         headers: {
           ...(token ? { 'Authorization': `Bearer ${token}` } : {})
         }
@@ -50,7 +50,7 @@ const Projects = ({ projects, setProjects, setSelectedProjectId, chats, currentC
     if (!newProject.name) return;
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch('http://localhost:8000/projects', {
+      const response = await fetch('http://localhost:8002/projects', {
         method: 'POST',
         headers: { 
           'Content-Type': 'application/json',
@@ -73,7 +73,7 @@ const Projects = ({ projects, setProjects, setSelectedProjectId, chats, currentC
     
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(`http://localhost:8000/projects/${projectId}`, {
+      const response = await fetch(`http://localhost:8002/projects/${projectId}`, {
         method: 'DELETE',
         headers: {
           ...(token ? { 'Authorization': `Bearer ${token}` } : {})
